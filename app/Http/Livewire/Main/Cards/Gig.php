@@ -10,8 +10,9 @@ use App\Models\Gig as ModelsGig;
 class Gig extends Component
 {
     use Actions;
-    
+
     public $gig;
+    public $sort_by;
     public $favorite = false;
     public $profile_visible;
 
@@ -28,7 +29,7 @@ class Gig extends Component
 
         // Check if user authenticated
         if (auth()->check()) {
-            
+
             $this->favorite = Favorite::where('user_id', auth()->id())->where('gig_id', $gig->id)->first() ? true : false;
 
         }
@@ -48,7 +49,7 @@ class Gig extends Component
         return view('livewire.main.cards.gig');
     }
 
-    
+
     /**
      * Remove gig from favorite
      *
@@ -58,7 +59,7 @@ class Gig extends Component
     public function removeFromFavorite($id)
     {
         try {
-        
+
             // Get gig
             $gig      = ModelsGig::where('uid', $id)->where('user_id', '!=', auth()->id())->active()->firstOrFail();
 
@@ -67,7 +68,7 @@ class Gig extends Component
 
             // Check if already exists
             if ($favorite) {
-                
+
                 // Delete
                 $favorite->delete();
 
@@ -84,7 +85,7 @@ class Gig extends Component
             }
 
         } catch (\Throwable $th) {
-            
+
             // Error
             $this->notification([
                 'title'       => __('messages.t_error'),
@@ -105,10 +106,10 @@ class Gig extends Component
     public function addToFavorite($id)
     {
         try {
-            
+
             // User must login first
             if (auth()->guest()) {
-                
+
                 // Error
                 $this->notification([
                     'title'       => __('messages.t_error'),
@@ -128,7 +129,7 @@ class Gig extends Component
 
             // Check if already exists
             if ($in_favorite) {
-                
+
                 // Error
                 $this->notification([
                     'title'       => __('messages.t_error'),
@@ -157,7 +158,7 @@ class Gig extends Component
             ]);
 
         } catch (\Throwable $th) {
-            
+
             // Error
             $this->notification([
                 'title'       => __('messages.t_error'),
