@@ -1,1 +1,0 @@
-<?php /**PATH /opt/lampp/htdocs/sweetman/resources/views/livewire/admin/services/payment/gateways/cpay.blade.php ENDPATH**/ ?>

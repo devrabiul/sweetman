@@ -53,7 +53,7 @@
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
     {{-- Preload Livewire --}}
-    <link rel="preload" href="{{ livewire_asset_path() }}" as="script">
+    <link rel="preload" href="{{ getLiveWireAssetPath() }}" as="script">
 
     {{-- Custom css --}}
     <style>

@@ -2,7 +2,7 @@
 <html lang="{{ app()->getLocale() }}" dir="{{ config()->get('direction') }}">
 
     <head>
-        
+
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -25,7 +25,7 @@
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
         {{-- Preload Livewire --}}
-        <link rel="preload" href="{{ livewire_asset_path() }}" as="script">
+        <link rel="preload" href="{{ getLiveWireAssetPath() }}" as="script">
 
         {{-- Custom css --}}
         <style>

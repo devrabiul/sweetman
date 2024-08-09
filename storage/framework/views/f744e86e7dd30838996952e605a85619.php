@@ -57,7 +57,7 @@
     <link rel="stylesheet" href="<?php echo e(mix('css/app.css')); ?>">
 
     
-    <link rel="preload" href="<?php echo e(livewire_asset_path()); ?>" as="script">
+    <link rel="preload" href="<?php echo e(getLiveWireAssetPath()); ?>" as="script">
 
     
     <style>
@@ -324,15 +324,15 @@
 <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('main.includes.header')->html();
-} elseif ($_instance->childHasBeenRendered('sxywc2i')) {
-    $componentId = $_instance->getRenderedChildComponentId('sxywc2i');
-    $componentTag = $_instance->getRenderedChildComponentTagName('sxywc2i');
+} elseif ($_instance->childHasBeenRendered('Q05UyNe')) {
+    $componentId = $_instance->getRenderedChildComponentId('Q05UyNe');
+    $componentTag = $_instance->getRenderedChildComponentTagName('Q05UyNe');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('sxywc2i');
+    $_instance->preserveRenderedChild('Q05UyNe');
 } else {
     $response = \Livewire\Livewire::mount('main.includes.header');
     $html = $response->html();
-    $_instance->logRenderedChild('sxywc2i', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('Q05UyNe', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>
@@ -417,15 +417,15 @@ echo $html;
 <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('main.includes.footer')->html();
-} elseif ($_instance->childHasBeenRendered('PyxfJF8')) {
-    $componentId = $_instance->getRenderedChildComponentId('PyxfJF8');
-    $componentTag = $_instance->getRenderedChildComponentTagName('PyxfJF8');
+} elseif ($_instance->childHasBeenRendered('hRHayIV')) {
+    $componentId = $_instance->getRenderedChildComponentId('hRHayIV');
+    $componentTag = $_instance->getRenderedChildComponentTagName('hRHayIV');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('PyxfJF8');
+    $_instance->preserveRenderedChild('hRHayIV');
 } else {
     $response = \Livewire\Livewire::mount('main.includes.footer');
     $html = $response->html();
-    $_instance->logRenderedChild('PyxfJF8', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('hRHayIV', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>
@@ -436,7 +436,7 @@ echo $html;
 
 
 <script >window.Wireui = {hook(hook, callback) {window.addEventListener(`wireui:${hook}`, () => callback())},dispatchHook(hook) {window.dispatchEvent(new Event(`wireui:${hook}`))}}</script>
-<script src="http://127.0.0.1:8000/wireui/assets/scripts?id=be97ebae74d62aa4c86689a6528b707f" defer ></script>
+<script src="http://localhost/sweetman/wireui/assets/scripts?id=be97ebae74d62aa4c86689a6528b707f" defer ></script>
 
 
 <script defer src="<?php echo e(mix('js/app.js')); ?>"></script>

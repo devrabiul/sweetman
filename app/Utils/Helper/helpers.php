@@ -1636,19 +1636,16 @@ function placeholder_img()
  *
  * @return mixed
  */
-function livewire_asset_path()
+function getLiveWireAssetPath()
 {
     try {
-
-        $manifest          = json_decode(file_get_contents(base_path('vendor/livewire/livewire/dist/manifest.json')), true);
+        $manifest = json_decode(file_get_contents(base_path('vendor/livewire/livewire/dist/manifest.json')), true);
         $versionedFileName = $manifest['/livewire.js'];
 
         if (SYSTEM_PROCESSING_DIRECTORY == 'public') {
             return url("vendor/livewire{$versionedFileName}");
         }
-
         return url("public/vendor/livewire{$versionedFileName}");
-
     } catch (\Throwable $th) {
         return null;
     }
@@ -2013,9 +2010,9 @@ if (!function_exists('getDynamicAsset')) {
     function getDynamicAsset($path = null) {
         if ($path) {
             if (SYSTEM_PROCESSING_DIRECTORY == 'public') {
-                return str_replace('public', '', $path);
+                $path = str_replace('public', '', $path);
             }
-            return $path;
+            return url($path);
         }
         return null;
     }
