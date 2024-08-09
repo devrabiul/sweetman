@@ -1,12 +1,12 @@
 <div class="w-full" x-data="window.AxZSIHcEeIYErvQ" x-init="initialize()" @keydown.window.escape="open = false" x-cloak>
-    
+
     {{-- Mobile filters --}}
     <div x-show="open" class="fixed inset-0 flex z-40 lg:hidden" x-ref="dialog" aria-modal="true">
-    
+
         <div x-show="open" x-transition:enter="transition-opacity ease-linear duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition-opacity ease-linear duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" x-description="Off-canvas menu overlay, show/hide based on off-canvas menu state." class="fixed inset-0 bg-black bg-opacity-25" @click="open = false" aria-hidden="true" style="display: none;">
         </div>
 
-    
+
         <div x-show="open" x-transition:enter="transition ease-in-out duration-300 transform" x-transition:enter-start="translate-x-full" x-transition:enter-end="translate-x-0" x-transition:leave="transition ease-in-out duration-300 transform" x-transition:leave-start="translate-x-0" x-transition:leave-end="translate-x-full" class="ml-auto relative max-w-xs w-full h-full bg-white dark:bg-zinc-800 shadow-xl py-4 pb-12 flex flex-col overflow-y-auto" style="display: none;">
 
             <div class="px-4 flex items-center justify-between">
@@ -105,7 +105,7 @@
                                     </div>
                                 </label>
                             </div>
-                        
+
                         </div>
                     </div>
                 </div>
@@ -132,7 +132,7 @@
                                     <input type="integer" wire:model.defer="max_price" minlength="1" min="1" maxlength="999999999" max="999999999" required="" class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 dark:placeholder-gray-200 dark:text-gray-100 text-gray-900 rounded-b-md focus:outline-none focus:ring-primary-600 focus:border-primary-600 focus:z-10 sm:text-sm font-medium dark:bg-transparent dark:border-zinc-600" placeholder="{{ __('messages.t_max_price') }}">
                                 </div>
                             </div>
-                        
+
                         </div>
                     </div>
                 </div>
@@ -159,7 +159,7 @@
                                     </label>
                                 </div>
                             @endforeach
-                        
+
                         </div>
                     </div>
                 </div>
@@ -174,15 +174,15 @@
                     @if ($rating || $delivery_time || $min_price || $max_price)
                         <span wire:click="resetFilter" class="hover:underline text-xs font-medium text-gray-600 hover:text-gray-800 mt-4 text-center block cursor-pointer">{{ __('messages.t_reset_filter') }}</span>
                     @endif
-                    
+
                 </div>
 
             </div>
 
         </div>
-    
+
     </div>
-    
+
     {{-- subcategory Container --}}
     <main class="max-w-7xl mx-auto">
 
@@ -209,46 +209,46 @@
                                 <svg class="flex-shrink-0 ltr:-mr-1 rtl:-ml-1 ltr:ml-1 rtl:mr-1 h-5 w-5 text-gray-400 dark:text-gray-300 group-hover:text-gray-500 dark:group-hover:text-gray-200 dark:hover:text-gray-200" x-description="Heroicon name: solid/chevron-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"> <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path> </svg>
                             </button>
                         </div>
-        
+
                         {{-- Sort by menu --}}
                         <div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="ltr:origin-top-right rtl:origin-top-left absolute ltr:right-0 rtl:left-0 mt-2 w-40 rounded-md shadow-sm bg-white dark:bg-zinc-800 ring-1 ring-black ring-opacity-5 focus:outline-none z-50" x-ref="menu-items" x-bind:aria-activedescendant="activeDescendant" role="menu" aria-orientation="vertical" tabindex="-1" @keydown.arrow-up.prevent="onArrowUp()" @keydown.arrow-down.prevent="onArrowDown()" @keydown.tab="open = false" @keydown.enter.prevent="open = false; focusButton()" @keyup.space.prevent="open = false; focusButton()" style="display: none;">
                             <div class="py-1" role="none">
-                            
+
                                 {{-- Most popular --}}
-                                <button wire:click="$set('sort_by', 'popular')" type="button" class="{{ $sort_by === 'popular' ? 'text-gray-900' : 'text-gray-500' }} block px-4 py-3 text-xs font-medium hover:bg-gray-100 dark:hover:bg-zinc-700 dark:text-gray-400 w-full ltr:text-left rtl:text-right">
+                                <button wire:click="setSortBy('popular')" type="button" class="{{ $sort_by === 'popular' ? 'text-gray-900' : 'text-gray-500' }} block px-4 py-3 text-xs font-medium hover:bg-gray-100 dark:hover:bg-zinc-700 dark:text-gray-400 w-full ltr:text-left rtl:text-right">
                                     {{ __('messages.t_most_popular') }}
                                 </button>
 
                                 {{-- Best rating --}}
-                                <button wire:click="$set('sort_by', 'rating')" type="button" class="{{ $sort_by === 'rating' ? 'text-gray-900' : 'text-gray-500' }} block px-4 py-3 text-xs font-medium hover:bg-gray-100 dark:hover:bg-zinc-700 dark:text-gray-400 w-full ltr:text-left rtl:text-right">
+                                <button wire:click="setSortBy('rating')" type="button" class="{{ $sort_by === 'rating' ? 'text-gray-900' : 'text-gray-500' }} block px-4 py-3 text-xs font-medium hover:bg-gray-100 dark:hover:bg-zinc-700 dark:text-gray-400 w-full ltr:text-left rtl:text-right">
                                     {{ __('messages.t_best_rating') }}
                                 </button>
 
                                 {{-- Best selling --}}
-                                <button wire:click="$set('sort_by', 'sales')" type="button" class="{{ $sort_by === 'sales' ? 'text-gray-900' : 'text-gray-500' }} block px-4 py-3 text-xs font-medium hover:bg-gray-100 dark:hover:bg-zinc-700 dark:text-gray-400 w-full ltr:text-left rtl:text-right">
+                                <button wire:click="setSortBy('sales')" type="button" class="{{ $sort_by === 'sales' ? 'text-gray-900' : 'text-gray-500' }} block px-4 py-3 text-xs font-medium hover:bg-gray-100 dark:hover:bg-zinc-700 dark:text-gray-400 w-full ltr:text-left rtl:text-right">
                                     {{ __('messages.t_most_selling') }}
                                 </button>
 
                                 {{-- Newest first --}}
-                                <button wire:click="$set('sort_by', 'newest')" type="button" class="{{ $sort_by === 'newest' ? 'text-gray-900' : 'text-gray-500' }} block px-4 py-3 text-xs font-medium hover:bg-gray-100 dark:hover:bg-zinc-700 dark:text-gray-400 w-full ltr:text-left rtl:text-right">
+                                <button wire:click="setSortBy('newest')" type="button" class="{{ $sort_by === 'newest' ? 'text-gray-900' : 'text-gray-500' }} block px-4 py-3 text-xs font-medium hover:bg-gray-100 dark:hover:bg-zinc-700 dark:text-gray-400 w-full ltr:text-left rtl:text-right">
                                     {{ __('messages.t_newest_first') }}
                                 </button>
 
                                 {{-- Price: Low to High --}}
-                                <button wire:click="$set('sort_by', 'price_low_high')" type="button" class="{{ $sort_by === 'price_low_high' ? 'text-gray-900' : 'text-gray-500' }} block px-4 py-3 text-xs font-medium hover:bg-gray-100 dark:hover:bg-zinc-700 dark:text-gray-400 w-full ltr:text-left rtl:text-right">
+                                <button wire:click="setSortBy('price_low_high')" type="button" class="{{ $sort_by === 'price_low_high' ? 'text-gray-900' : 'text-gray-500' }} block px-4 py-3 text-xs font-medium hover:bg-gray-100 dark:hover:bg-zinc-700 dark:text-gray-400 w-full ltr:text-left rtl:text-right">
                                     {{ __('messages.t_price_low_to_high') }}
                                 </button>
 
                                 {{-- Price: High to Low --}}
-                                <button wire:click="$set('sort_by', 'price_high_low')" type="button" class="{{ $sort_by === 'price_high_low' ? 'text-gray-900' : 'text-gray-500' }} block px-4 py-3 text-xs font-medium hover:bg-gray-100 dark:hover:bg-zinc-700 dark:text-gray-400 w-full ltr:text-left rtl:text-right">
+                                <button wire:click="setSortBy('price_high_low')" type="button" class="{{ $sort_by === 'price_high_low' ? 'text-gray-900' : 'text-gray-500' }} block px-4 py-3 text-xs font-medium hover:bg-gray-100 dark:hover:bg-zinc-700 dark:text-gray-400 w-full ltr:text-left rtl:text-right">
                                     {{ __('messages.t_price_high_to_low') }}
                                 </button>
-                            
+
                             </div>
                         </div>
-                    
+
                     </div>
-        
+
                     {{-- Filter (Mobile) --}}
                     <button type="button" class="p-2 -m-2 ltr:ml-4 rtl:mr-4 ltr:sm:ml-6 rtl:sm:mr-6 text-gray-400 hover:text-gray-500 lg:hidden" @click="open = true">
                         <svg class="w-4 h-4" aria-hidden="true" x-description="Heroicon name: solid/filter" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"> <path fill-rule="evenodd" d="M3 3a1 1 0 011-1h12a1 1 0 011 1v3a1 1 0 01-.293.707L12 11.414V15a1 1 0 01-.293.707l-2 2A1 1 0 018 17v-5.586L3.293 6.707A1 1 0 013 6V3z" clip-rule="evenodd"></path> </svg>
@@ -268,7 +268,7 @@
 
                     {{-- Filters --}}
                     <div class="hidden lg:block bg-white dark:bg-zinc-700 shadow-sm border rounded-md border-gray-100 dark:border-zinc-600 h-fit">
-                        
+
                         {{-- Rating --}}
                         <div x-data="{ open: true }" class="py-3">
                             <h3 class="-my-3 flow-root bg-gray-50 dark:bg-zinc-600 px-4 rounded-t-md">
@@ -282,7 +282,7 @@
                             </h3>
                             <div class="pt-6 px-4" x-show="open" style="display: none;">
                                 <div class="space-y-4">
-    
+
                                     {{-- 5 stars --}}
                                     <div class="flex items-center">
                                         <input wire:model.defer="rating" id="filter-rating-5" name="rating" value="5" type="radio" class="h-4 w-4 border-gray-300 rounded-full text-primary-600 focus:ring-primary-600">
@@ -294,7 +294,7 @@
                                             </div>
                                         </label>
                                     </div>
-    
+
                                     {{-- 4 stars --}}
                                     <div class="flex items-center">
                                         <input wire:model.defer="rating" id="filter-rating-4" name="rating" value="4" type="radio" class="h-4 w-4 border-gray-300 rounded-full text-primary-600 focus:ring-primary-600">
@@ -307,7 +307,7 @@
                                             </div>
                                         </label>
                                     </div>
-    
+
                                     {{-- 3 stars --}}
                                     <div class="flex items-center">
                                         <input wire:model.defer="rating" id="filter-rating-3" name="rating" value="3" type="radio" class="h-4 w-4 border-gray-300 rounded-full text-primary-600 focus:ring-primary-600">
@@ -322,7 +322,7 @@
                                             </div>
                                         </label>
                                     </div>
-    
+
                                     {{-- 2 stars --}}
                                     <div class="flex items-center">
                                         <input wire:model.defer="rating" id="filter-rating-2" name="rating" value="2" type="radio" class="h-4 w-4 border-gray-300 rounded-full text-primary-600 focus:ring-primary-600">
@@ -337,7 +337,7 @@
                                             </div>
                                         </label>
                                     </div>
-    
+
                                     {{-- 1 stars --}}
                                     <div class="flex items-center">
                                         <input wire:model.defer="rating" id="filter-rating-1" name="rating" value="1" type="radio" class="h-4 w-4 border-gray-300 rounded-full text-primary-600 focus:ring-primary-600">
@@ -352,11 +352,11 @@
                                             </div>
                                         </label>
                                     </div>
-                                
+
                                 </div>
                             </div>
                         </div>
-    
+
                         {{-- Price --}}
                         <div x-data="{ open: true }" class="py-3">
                             <h3 class="-my-3 flow-root bg-gray-50 dark:bg-zinc-600 px-4">
@@ -370,7 +370,7 @@
                             </h3>
                             <div class="pt-6 px-4" x-show="open" style="display: none;">
                                 <div class="space-y-4">
-    
+
                                     <div class="rounded-md shadow-sm -space-y-px">
                                         <div>
                                             <input type="integer" wire:model.defer="min_price" minlength="1" min="1" maxlength="999999999" max="999999999" class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 dark:placeholder-gray-200 dark:text-gray-100 text-gray-900 rounded-t-md focus:outline-none focus:ring-primary-600 focus:border-primary-600 focus:z-10 sm:text-sm font-medium dark:bg-transparent dark:border-zinc-600" placeholder="{{ __('messages.t_min_price') }}">
@@ -379,11 +379,11 @@
                                             <input type="integer" wire:model.defer="max_price" minlength="1" min="1" maxlength="999999999" max="999999999" required="" class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 dark:placeholder-gray-200 dark:text-gray-100 text-gray-900 rounded-b-md focus:outline-none focus:ring-primary-600 focus:border-primary-600 focus:z-10 sm:text-sm font-medium dark:bg-transparent dark:border-zinc-600" placeholder="{{ __('messages.t_max_price') }}">
                                         </div>
                                     </div>
-                                
+
                                 </div>
                             </div>
                         </div>
-    
+
                         {{-- Delivery time --}}
                         <div x-data="{ open: true }" class="py-3">
                             <h3 class="-my-3 flow-root bg-gray-50 dark:bg-zinc-600 px-4">
@@ -397,7 +397,7 @@
                             </h3>
                             <div class="pt-6 px-4" x-show="open" style="display: none;">
                                 <div class="space-y-4">
-    
+
                                     @foreach ($delivery_times as $key => $time)
                                         <div class="flex items-center">
                                             <input wire:model.defer="delivery_time" id="filter-delivery-time-{{ $key }}" value="{{ $time['value'] }}" name="delivery_time" type="radio" class="focus:ring-primary-600 h-4 w-4 text-primary-600 border-gray-300">
@@ -406,24 +406,24 @@
                                             </label>
                                         </div>
                                     @endforeach
-                                
+
                                 </div>
                             </div>
                         </div>
-    
+
                         {{-- Action buttons --}}
                         <div class="py-6 px-4">
-    
+
                             {{-- Filter --}}
                             <x-forms.button action="filter" :text="__('messages.t_filter')" :block="true" />
-    
+
                             {{-- Reset --}}
                             @if ($rating || $delivery_time || $min_price || $max_price)
                                 <span wire:click="resetFilter" class="hover:underline text-xs font-medium text-gray-600 hover:text-gray-800 mt-4 text-center block cursor-pointer">{{ __('messages.t_reset_filter') }}</span>
                             @endif
-    
+
                         </div>
-                        
+
                     </div>
 
                 </div>
@@ -433,14 +433,14 @@
                     <div class="grid grid-cols-12 sm:gap-x-6 gap-y-6">
 
                         @forelse ($gigs as $gig)
-                            
+
                             {{-- Gig item --}}
                             <div class="col-span-12 lg:col-span-6 xl:col-span-4 md:col-span-6 sm:col-span-6" wire:key="gigs-list-{{ $gig->uid }}">
                                 @livewire('main.cards.gig', ['gig' => $gig], key("gig-item-" . $gig->uid))
                             </div>
 
                         @empty
-                            
+
                             <div class="col-span-12">
                                 <div class="py-14 px-6 text-center text-sm sm:px-14 border-dashed border-2">
                                     <svg class="mx-auto h-6 w-6 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/> </svg>
@@ -471,7 +471,7 @@
 
 @push('scripts')
 
-    <script src="{{ url('public/js/components.js') }}"></script>
+    <script src="{{ getDynamicAsset('public/js/components.js') }}"></script>
 
     {{-- AlpineJs --}}
     <script>
@@ -482,7 +482,7 @@
 
                 // Init component
                 initialize() {
-                    
+
                 }
 
             }

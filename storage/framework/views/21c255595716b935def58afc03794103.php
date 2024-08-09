@@ -12,7 +12,8 @@
     if (array_key_exists($__key, $__defined_vars)) unset($$__key);
 } ?>
 <?php unset($__defined_vars); ?>
-<?php if (isset($component)) { $__componentOriginal71c6471fa76ce19017edc287b6f4508c = $component; } ?>
+<?php if (isset($component)) { $__componentOriginal3068fb935121f73826aa6c62964f18b2 = $component; } ?>
+<?php if (isset($attributes)) { $__attributesOriginal3068fb935121f73826aa6c62964f18b2 = $attributes; } ?>
 <?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'wireui::components.icons.outline.x','data' => ['class' => $class]] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('wireui::icons.outline.x'); ?>
 <?php if ($component->shouldRender()): ?>
@@ -26,7 +27,11 @@
 
  <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
-<?php if (isset($__componentOriginal71c6471fa76ce19017edc287b6f4508c)): ?>
-<?php $component = $__componentOriginal71c6471fa76ce19017edc287b6f4508c; ?>
-<?php unset($__componentOriginal71c6471fa76ce19017edc287b6f4508c); ?>
+<?php if (isset($__attributesOriginal3068fb935121f73826aa6c62964f18b2)): ?>
+<?php $attributes = $__attributesOriginal3068fb935121f73826aa6c62964f18b2; ?>
+<?php unset($__attributesOriginal3068fb935121f73826aa6c62964f18b2); ?>
+<?php endif; ?>
+<?php if (isset($__componentOriginal3068fb935121f73826aa6c62964f18b2)): ?>
+<?php $component = $__componentOriginal3068fb935121f73826aa6c62964f18b2; ?>
+<?php unset($__componentOriginal3068fb935121f73826aa6c62964f18b2); ?>
 <?php endif; ?><?php /**PATH /opt/lampp/htdocs/sweetman/storage/framework/views/1b08e0ecf93ac80e6fe19586d946990a.blade.php ENDPATH**/ ?>

@@ -2,7 +2,7 @@
 <html lang="{{ app()->getLocale() }}" dir="{{ config()->get('direction') }}">
 
     <head>
-        
+
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -71,8 +71,8 @@
         <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
         {{-- Helpers --}}
-        <script src="{{ url('public/js/utils.js') }}"></script>
-        <script src="{{ url('public/js/components.js') }}"></script>
+        <script src="{{ getDynamicAsset('public/js/utils.js') }}"></script>
+        <script src="{{ getDynamicAsset('public/js/components.js') }}"></script>
 
         {{-- JavaScript Codes --}}
         <script>

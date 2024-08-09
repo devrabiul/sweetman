@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}" dir="{{ config()->get('direction') }}" @class(['dark' => current_theme() === 'dark'])>
-    
+
     <head>
 
         <meta charset="UTF-8">
@@ -68,7 +68,7 @@
 
         {{-- Container --}}
         <div class="min-h-screen flex grow bg-slate-50 dark:bg-zinc-700">
-            
+
             <div class="hidden w-full place-items-center lg:grid">
                 <div class="w-full px-2 py-40 sm:py-48 sm:px-12 flex flex-col justify-center relative bg-no-repeat bg-center bg-cover h-full" @if(settings('auth')->wallpaper) style="background-image: url({{ src(settings('auth')->wallpaper) }})" @endif>
                     <span class="absolute bg-gradient-to-b from-primary-500 to-primary-400 opacity-0 inset-0 z-0"></span>
@@ -109,7 +109,7 @@
         <script defer src="{{ mix('js/app.js') }}"></script>
 
         {{-- Helpers --}}
-        <script src="{{ url('public/js/utils.js') }}"></script>
+        <script src="{{ getDynamicAsset('public/js/utils.js') }}"></script>
 
         {{-- Custom scripts --}}
         @stack('scripts')

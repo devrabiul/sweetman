@@ -1,0 +1,1 @@
+<?php /**PATH /opt/lampp/htdocs/sweetman/resources/views/livewire/admin/services/payment/gateways/freekassa.blade.php ENDPATH**/ ?>

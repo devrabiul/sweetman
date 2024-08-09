@@ -108,21 +108,22 @@
 
 </head>
 <body>
-    <div class="gig-card" x-data="window._<?php echo e($gig->uid); ?>" dir="<?php echo e(config()->get('direction')); ?>" style="width: 300px;">
-        <div class="card-container bg-white dark:bg-zinc-800 rounded-md shadow-sm ring-1 ring-gray-200 dark:ring-zinc-800 overflow-hidden" style="border-radius: 15px;">
-            
-            <a href="<?php echo e(url('service', $gig->slug)); ?>" class="flex items-center justify-center overflow-hidden w-full h-52 bg-gray-100 dark:bg-zinc-700" style="border-radius: 15px 15px 0 0;">
-                <img class="card-image object-cover w-full h-full lazy" src="<?php echo e(placeholder_img()); ?>" data-src="<?php echo e(src($gig->thumbnail)); ?>" alt="<?php echo e($gig->title); ?>" style="border-radius: 15px 15px 0 0; object-position: top;">
-            </a>
-            <div class="button-container">
-                <button class="button button-blue">USERNAME</button>
-                <button class="button button-red">OFFER INFO</button>
-            </div>
-        </div>
-    </div>
+
 </body>
 </html>
 
+<div class="gig-card" x-data="window._<?php echo e($gig->uid); ?>" dir="<?php echo e(config()->get('direction')); ?>" style="width: 300px;">
+    <div class="card-container bg-white dark:bg-zinc-800 rounded-md shadow-sm ring-1 ring-gray-200 dark:ring-zinc-800 overflow-hidden" style="border-radius: 15px;">
+        
+        <a href="<?php echo e(url('service', $gig->slug)); ?>" class="flex items-center justify-center overflow-hidden w-full h-52 bg-gray-100 dark:bg-zinc-700" style="border-radius: 15px 15px 0 0;">
+            <img class="card-image object-cover w-full h-full lazy" src="<?php echo e(placeholder_img()); ?>" data-src="<?php echo e(src($gig->thumbnail)); ?>" alt="<?php echo e($gig->title); ?>" style="border-radius: 15px 15px 0 0; object-position: top;">
+        </a>
+        <div class="button-container">
+            <button class="button button-blue">USERNAME</button>
+            <button class="button button-red">OFFER INFO</button>
+        </div>
+    </div>
+</div>
 
 
 
@@ -130,4 +131,5 @@
 
 
 
-      <?php /**PATH /opt/lampp/htdocs/sweetman/resources/views/livewire/main/cards/gig.blade.php ENDPATH**/ ?>
+
+<?php /**PATH /opt/lampp/htdocs/sweetman/resources/views/livewire/main/cards/gig.blade.php ENDPATH**/ ?>

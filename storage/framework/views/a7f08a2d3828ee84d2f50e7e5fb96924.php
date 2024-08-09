@@ -13,6 +13,7 @@
 } ?>
 <?php unset($__defined_vars); ?>
 <?php if (isset($component)) { $__componentOriginal30b1ecc3bb8af1d000115fef1c04cca2 = $component; } ?>
+<?php if (isset($attributes)) { $__attributesOriginal30b1ecc3bb8af1d000115fef1c04cca2 = $attributes; } ?>
 <?php $component = WireUi\View\Components\Icon::resolve(['name' => $name] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('icon'); ?>
 <?php if ($component->shouldRender()): ?>
@@ -25,6 +26,10 @@
 <?php echo e($slot ?? ""); ?>
 
  <?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__attributesOriginal30b1ecc3bb8af1d000115fef1c04cca2)): ?>
+<?php $attributes = $__attributesOriginal30b1ecc3bb8af1d000115fef1c04cca2; ?>
+<?php unset($__attributesOriginal30b1ecc3bb8af1d000115fef1c04cca2); ?>
 <?php endif; ?>
 <?php if (isset($__componentOriginal30b1ecc3bb8af1d000115fef1c04cca2)): ?>
 <?php $component = $__componentOriginal30b1ecc3bb8af1d000115fef1c04cca2; ?>

@@ -63,6 +63,11 @@ class SubcategoryComponent extends Component
         ];
     }
 
+    public function setSortBy($value): void
+    {
+        $this->sort_by = $value;
+    }
+
 
     /**
      * Render component
@@ -166,7 +171,7 @@ class SubcategoryComponent extends Component
                 case 'price_high_low':
                     $query->orderBy('price', 'DESC');
                     break;
-                
+
                 default:
                     $query->orderByRaw('RAND()');
                     break;
@@ -213,7 +218,7 @@ class SubcategoryComponent extends Component
 
         // Generate url
         $url    = url("categories/". $this->category->slug . "/" . $this->subcategory->slug . "?" . $string);
-        
+
         return redirect($url);
     }
 

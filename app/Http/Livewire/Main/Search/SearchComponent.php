@@ -19,7 +19,7 @@ class SearchComponent extends Component
     public $delivery_times;
 
     // filters
-    public $sort_by;
+    public $sort_by = '';
     public $min_price;
     public $max_price;
     public $delivery_time;
@@ -59,29 +59,29 @@ class SearchComponent extends Component
     public function render()
     {
         // SEO
-        $separator   = settings('general')->separator;
-        $title       = __('messages.t_search_results_for_q', ['q' => $this->q]) . " $separator " . settings('general')->title;
+        $separator = settings('general')->separator;
+        $title = __('messages.t_search_results_for_q', ['q' => $this->q]) . " $separator " . settings('general')->title;
         $description = settings('seo')->description;
-        $ogimage     = src( settings('seo')->ogimage );
+        $ogimage = src(settings('seo')->ogimage);
 
-        $this->seo()->setTitle( $title );
-        $this->seo()->setDescription( $description );
-        $this->seo()->setCanonical( url()->current() );
-        $this->seo()->opengraph()->setTitle( $title );
-        $this->seo()->opengraph()->setDescription( $description );
-        $this->seo()->opengraph()->setUrl( url()->current() );
+        $this->seo()->setTitle($title);
+        $this->seo()->setDescription($description);
+        $this->seo()->setCanonical(url()->current());
+        $this->seo()->opengraph()->setTitle($title);
+        $this->seo()->opengraph()->setDescription($description);
+        $this->seo()->opengraph()->setUrl(url()->current());
         $this->seo()->opengraph()->setType('website');
-        $this->seo()->opengraph()->addImage( $ogimage );
-        $this->seo()->twitter()->setImage( $ogimage );
-        $this->seo()->twitter()->setUrl( url()->current() );
-        $this->seo()->twitter()->setSite( "@" . settings('seo')->twitter_username );
+        $this->seo()->opengraph()->addImage($ogimage);
+        $this->seo()->twitter()->setImage($ogimage);
+        $this->seo()->twitter()->setUrl(url()->current());
+        $this->seo()->twitter()->setSite("@" . settings('seo')->twitter_username);
         $this->seo()->twitter()->addValue('card', 'summary_large_image');
         $this->seo()->metatags()->addMeta('fb:page_id', settings('seo')->facebook_page_id, 'property');
         $this->seo()->metatags()->addMeta('fb:app_id', settings('seo')->facebook_app_id, 'property');
         $this->seo()->metatags()->addMeta('robots', 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1', 'name');
-        $this->seo()->jsonLd()->setTitle( $title );
-        $this->seo()->jsonLd()->setDescription( $description );
-        $this->seo()->jsonLd()->setUrl( url()->current() );
+        $this->seo()->jsonLd()->setTitle($title);
+        $this->seo()->jsonLd()->setDescription($description);
+        $this->seo()->jsonLd()->setUrl(url()->current());
         $this->seo()->jsonLd()->setType('WebSite');
 
         return view('livewire.main.search.search', [
@@ -89,6 +89,10 @@ class SearchComponent extends Component
         ])->extends('livewire.main.layout.app')->section('content');
     }
 
+    public function setSortBy($value): void
+    {
+        $this->sort_by = $value;
+    }
 
     /**
      * Get gigs
@@ -119,7 +123,7 @@ class SearchComponent extends Component
 
         // Check rating
         if ($this->rating) {
-            $query->whereBetween('rating', [$this->rating, $this->rating +1]);
+            $query->whereBetween('rating', [$this->rating, $this->rating + 1]);
         }
 
         // Check sort by
@@ -155,7 +159,7 @@ class SearchComponent extends Component
                 case 'price_high_low':
                     $query->orderBy('price', 'DESC');
                     break;
-                
+
                 default:
                     $query->orderByRaw('RAND()');
                     break;
@@ -163,14 +167,14 @@ class SearchComponent extends Component
         }
 
         // Set results
-        return $query->where(function($builder) use($keyword) {
-                        return $builder->where('title', 'LIKE', "%{$keyword}%")
-                        ->orWhere('description', 'LIKE', "%{$keyword}%")
-                        ->orWhereHas('tagged', function($query) use ($keyword) {
-                            return $query->where('tag_name', 'LIKE', "%{$keyword}%");
-                        });
-                    })
-                    ->paginate(42);
+        return $query->where(function ($builder) use ($keyword) {
+            return $builder->where('title', 'LIKE', "%{$keyword}%")
+                ->orWhere('description', 'LIKE', "%{$keyword}%")
+                ->orWhereHas('tagged', function ($query) use ($keyword) {
+                    return $query->where('tag_name', 'LIKE', "%{$keyword}%");
+                });
+        })
+            ->paginate(42);
     }
 
 
@@ -185,7 +189,7 @@ class SearchComponent extends Component
         $queries = [];
 
         // Check if rating
-        if ($this->rating && in_array($this->rating, [1,2,3,4,5])) {
+        if ($this->rating && in_array($this->rating, [1, 2, 3, 4, 5])) {
             $queries['rating'] = $this->rating;
         }
 
@@ -208,8 +212,8 @@ class SearchComponent extends Component
         $string = Arr::query($queries);
 
         // Generate url
-        $url    = url("search?q=" . $this->q . '&' . $string);
-        
+        $url = url("search?q=" . $this->q . '&' . $string);
+
         return redirect($url);
     }
 
@@ -224,5 +228,5 @@ class SearchComponent extends Component
         // Reset filter
         return redirect('search?q=' . $this->q);
     }
-    
+
 }

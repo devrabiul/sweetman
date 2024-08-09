@@ -93,7 +93,7 @@ function format_date($timestamp, $format = 'ago')
         return Carbon::createFromTimeStamp(strtotime($timestamp), config('app.timezone'))->diffForHumans();
 
     } else {
-        
+
         return Carbon::create($timestamp)->setTimezone(config('app.timezone'))->translatedFormat($format);
 
     }
@@ -129,13 +129,17 @@ function src($file)
 {
     // Check if file set
     if ($file) {
-        
+
         // Get file path
         $path = public_path('storage/' . $file->file_folder . '/' . $file->uid . "." . $file->file_extension);
 
         // Check if file exists
         if (File::exists($path)) {
-            
+
+            if (SYSTEM_PROCESSING_DIRECTORY == 'public') {
+                return url('storage/' . $file->file_folder . '/' . $file->uid . "." . $file->file_extension);
+            }
+
             // File exists, return url
             return url('public/storage/' . $file->file_folder . '/' . $file->uid . "." . $file->file_extension);
 
@@ -176,21 +180,21 @@ function admin_url($to = null, $params = null)
 function deleteModelFile($file)
 {
     try {
-        
+
         // Check if file set
         if ($file) {
-            
+
             // Get file path
             $path = public_path('storage/' . $file->file_folder . '/' . $file->uid . '.' . $file->file_extension);
-    
+
             // Check if file exists
             if (File::exists($path)) {
                 File::delete($path);
             }
-    
+
             // Now delete it from database
             $file->delete();
-    
+
         }
 
     } catch (\Throwable $th) {
@@ -215,7 +219,7 @@ function settings($settings, $updateCache = false)
 
             // Check if want to update cache
             if ($updateCache) {
-                
+
                 // Remove it from cache
                 Cache::forget('settings_currency');
 
@@ -234,7 +238,7 @@ function settings($settings, $updateCache = false)
 
             // Check if want to update cache
             if ($updateCache) {
-                
+
                 // Remove it from cache
                 Cache::forget('settings_publish');
 
@@ -253,7 +257,7 @@ function settings($settings, $updateCache = false)
 
             // Check if want to update cache
             if ($updateCache) {
-                
+
                 // Remove it from cache
                 Cache::forget('settings_commission');
 
@@ -272,7 +276,7 @@ function settings($settings, $updateCache = false)
 
             // Check if want to update cache
             if ($updateCache) {
-                
+
                 // Remove it from cache
                 Cache::forget('settings_media');
 
@@ -291,7 +295,7 @@ function settings($settings, $updateCache = false)
 
             // Check if want to update cache
             if ($updateCache) {
-                
+
                 // Remove it from cache
                 Cache::forget('settings_withdrawal');
 
@@ -310,7 +314,7 @@ function settings($settings, $updateCache = false)
 
             // Check if want to update cache
             if ($updateCache) {
-                
+
                 // Remove it from cache
                 Cache::forget('settings_auth');
 
@@ -329,7 +333,7 @@ function settings($settings, $updateCache = false)
 
             // Check if want to update cache
             if ($updateCache) {
-                
+
                 // Remove it from cache
                 Cache::forget('settings_footer');
 
@@ -348,7 +352,7 @@ function settings($settings, $updateCache = false)
 
             // Check if want to update cache
             if ($updateCache) {
-                
+
                 // Remove it from cache
                 Cache::forget('settings_general');
 
@@ -367,7 +371,7 @@ function settings($settings, $updateCache = false)
 
             // Check if want to update cache
             if ($updateCache) {
-                
+
                 // Remove it from cache
                 Cache::forget('settings_security');
 
@@ -386,7 +390,7 @@ function settings($settings, $updateCache = false)
 
             // Check if want to update cache
             if ($updateCache) {
-                
+
                 // Remove it from cache
                 Cache::forget('settings_seo');
 
@@ -405,7 +409,7 @@ function settings($settings, $updateCache = false)
 
             // Check if want to update cache
             if ($updateCache) {
-                
+
                 // Remove it from cache
                 Cache::forget('settings_newsletter');
 
@@ -425,7 +429,7 @@ function settings($settings, $updateCache = false)
 
             // Check if want to update cache
             if ($updateCache) {
-                
+
                 // Remove it from cache
                 Cache::forget('settings_blog');
 
@@ -443,7 +447,7 @@ function settings($settings, $updateCache = false)
 
             // Check if want to update cache
             if ($updateCache) {
-                
+
                 // Remove it from cache
                 Cache::forget('settings_appearance');
 
@@ -463,7 +467,7 @@ function settings($settings, $updateCache = false)
 
             // Check if want to update cache
             if ($updateCache) {
-                
+
                 // Remove it from cache
                 Cache::forget('settings_offline_payment');
 
@@ -483,7 +487,7 @@ function settings($settings, $updateCache = false)
 
             // Check if want to update cache
             if ($updateCache) {
-                
+
                 // Remove it from cache
                 Cache::forget('settings_paystack');
 
@@ -503,7 +507,7 @@ function settings($settings, $updateCache = false)
 
             // Check if want to update cache
             if ($updateCache) {
-                
+
                 // Remove it from cache
                 Cache::forget('settings_cashfree');
 
@@ -523,7 +527,7 @@ function settings($settings, $updateCache = false)
 
             // Check if want to update cache
             if ($updateCache) {
-                
+
                 // Remove it from cache
                 Cache::forget('settings_xendit');
 
@@ -543,7 +547,7 @@ function settings($settings, $updateCache = false)
 
             // Check if want to update cache
             if ($updateCache) {
-                
+
                 // Remove it from cache
                 Cache::forget('settings_projects');
 
@@ -563,7 +567,7 @@ function settings($settings, $updateCache = false)
 
             // Check if want to update cache
             if ($updateCache) {
-                
+
                 // Remove it from cache
                 Cache::forget('settings_flutterwave');
 
@@ -583,7 +587,7 @@ function settings($settings, $updateCache = false)
 
             // Check if want to update cache
             if ($updateCache) {
-                
+
                 // Remove it from cache
                 Cache::forget('settings_vnpay');
 
@@ -603,7 +607,7 @@ function settings($settings, $updateCache = false)
 
             // Check if want to update cache
             if ($updateCache) {
-                
+
                 // Remove it from cache
                 Cache::forget('settings_paymob');
 
@@ -623,7 +627,7 @@ function settings($settings, $updateCache = false)
 
             // Check if want to update cache
             if ($updateCache) {
-                
+
                 // Remove it from cache
                 Cache::forget('settings_mercadopago');
 
@@ -643,7 +647,7 @@ function settings($settings, $updateCache = false)
 
             // Check if want to update cache
             if ($updateCache) {
-                
+
                 // Remove it from cache
                 Cache::forget('settings_paytabs');
 
@@ -663,7 +667,7 @@ function settings($settings, $updateCache = false)
 
             // Check if want to update cache
             if ($updateCache) {
-                
+
                 // Remove it from cache
                 Cache::forget('settings_razorpay');
 
@@ -683,7 +687,7 @@ function settings($settings, $updateCache = false)
 
             // Check if want to update cache
             if ($updateCache) {
-                
+
                 // Remove it from cache
                 Cache::forget('settings_youcanpay');
 
@@ -703,7 +707,7 @@ function settings($settings, $updateCache = false)
 
             // Check if want to update cache
             if ($updateCache) {
-                
+
                 // Remove it from cache
                 Cache::forget('settings_nowpayments');
 
@@ -723,7 +727,7 @@ function settings($settings, $updateCache = false)
 
             // Check if want to update cache
             if ($updateCache) {
-                
+
                 // Remove it from cache
                 Cache::forget('settings_jazzcash');
 
@@ -743,7 +747,7 @@ function settings($settings, $updateCache = false)
 
             // Check if want to update cache
             if ($updateCache) {
-                
+
                 // Remove it from cache
                 Cache::forget('settings_mollie');
 
@@ -763,7 +767,7 @@ function settings($settings, $updateCache = false)
 
             // Check if want to update cache
             if ($updateCache) {
-                
+
                 // Remove it from cache
                 Cache::forget('settings_paytr');
 
@@ -783,7 +787,7 @@ function settings($settings, $updateCache = false)
 
             // Check if want to update cache
             if ($updateCache) {
-                
+
                 // Remove it from cache
                 Cache::forget('settings_paypal');
 
@@ -803,7 +807,7 @@ function settings($settings, $updateCache = false)
 
             // Check if want to update cache
             if ($updateCache) {
-                
+
                 // Remove it from cache
                 Cache::forget('settings_stripe');
 
@@ -823,7 +827,7 @@ function settings($settings, $updateCache = false)
 
             // Check if want to update cache
             if ($updateCache) {
-                
+
                 // Remove it from cache
                 Cache::forget('settings_epoint');
 
@@ -843,7 +847,7 @@ function settings($settings, $updateCache = false)
 
             // Check if want to update cache
             if ($updateCache) {
-                
+
                 // Remove it from cache
                 Cache::forget('settings_hero');
 
@@ -863,7 +867,7 @@ function settings($settings, $updateCache = false)
 
             // Check if want to update cache
             if ($updateCache) {
-                
+
                 // Remove it from cache
                 Cache::forget('settings_live_chat');
 
@@ -877,7 +881,7 @@ function settings($settings, $updateCache = false)
             }
 
         break;
-        
+
         default:
             # code...
             break;
@@ -894,7 +898,7 @@ function settings($settings, $updateCache = false)
 function youtubeId($link)
 {
     try {
-        
+
         // Validate link
         if (preg_match("#(?<=v=)[a-zA-Z0-9-]+(?=&)|(?<=v\/)[^&\n]+(?=\?)|(?<=v=)[^&\n]+|(?<=youtu.be/)[^&\n]+#", $link, $matches)) {
             return isset($matches[0]) ? $matches[0] : null;
@@ -960,7 +964,7 @@ function delivery_time_trans($time)
 function acceptableRequirementsMimeTypes()
 {
     try {
-        
+
         // Get allowed requirement files extensions
         $allowed_extensions = settings('media')->requirements_file_allowed_extensions;
 
@@ -976,7 +980,7 @@ function acceptableRequirementsMimeTypes()
 
         // Loop through allowed extensions
         foreach ($extensions as $ext) {
-            
+
             // Get extension mime type
             $mime_type = $mimes->getMimeType($ext);
 
@@ -1002,7 +1006,7 @@ function acceptableRequirementsMimeTypes()
 function getWebsiteFirstLetter($domain)
 {
     try {
-        
+
         // Remove www from domain
         $withoutWWW    = str_replace("www.", "", $domain);
 
@@ -1033,17 +1037,17 @@ function getWebsiteFirstLetter($domain)
 function safeEncrypt($data)
 {
     $output         = false;
-  
+
     $encrypt_method = 'AES-256-CBC';
     $secret_key     = 'WU9AHAl#Ra--WWre';
     $secret_iv      = 'M43Sy96JuvJ5N6jY';
-  
+
     // hash
     $key            = hash('sha256', $secret_key);
-  
+
     // iv - encrypt method AES-256-CBC expects 16 bytes - else you will get a warning
     $iv             = substr(hash('sha256', $secret_iv), 0, 16);
-  
+
     $output         = openssl_encrypt($data, $encrypt_method, $key, 0, $iv);
     $output         = base64_encode($output);
 
@@ -1061,17 +1065,17 @@ function safeEncrypt($data)
 function safeDecrypt($encrypted)
 {
     $output         = false;
-  
+
     $encrypt_method = 'AES-256-CBC';
     $secret_key     = 'WU9AHAl#Ra--WWre';
     $secret_iv      = 'M43Sy96JuvJ5N6jY';
-  
+
     // hash
     $key            = hash('sha256', $secret_key);
-  
+
     // iv - encrypt method AES-256-CBC expects 16 bytes - else you will get a warning
     $iv             = substr(hash('sha256', $secret_iv), 0, 16);
-  
+
     $output         = openssl_decrypt(base64_decode($encrypted), $encrypt_method, $key, 0, $iv);
 
     return $output;
@@ -1088,7 +1092,7 @@ function supported_languages($clear_cache = false)
 {
     // Check if want to clear cache
     if ($clear_cache) {
-        
+
         // Clear old cache
         Cache::forget('supported_languages');
 
@@ -1116,7 +1120,7 @@ function supported_languages($clear_cache = false)
 function clean($text)
 {
     try {
-        
+
         return \Purify::clean($text);
 
     } catch (\Throwable $th) {
@@ -1160,7 +1164,7 @@ function setSeoTitle($title, $isDashboard = false)
 
     // Check if want title for dashboard
     if ($isDashboard) {
-        
+
         // Return title
         return $title . " $separator " . __('messages.t_dashboard');
 
@@ -1204,7 +1208,7 @@ function advertisements($name = null, $updateCache = false)
 {
     // Check if want to update cache
     if ($updateCache) {
-        
+
         // Clear old cache
         Cache::forget('advertisements');
 
@@ -1258,7 +1262,7 @@ function isInstalled()
         return true;
 
     } catch (\Exception $e) {
-        
+
         // Not connected
         return false;
 
@@ -1272,7 +1276,7 @@ function isInstalled()
  * @param integer $ladj
  * @return array
  */
-function hex2hsl($RGB, $ladj = 0) 
+function hex2hsl($RGB, $ladj = 0)
 {
     //have we got an RGB array or a string of hex RGB values (assume it is valid!)
     if (!is_array($RGB)) {
@@ -1295,13 +1299,13 @@ function hex2hsl($RGB, $ladj = 0)
 
     // lightness calculation. 0 to 1 value, scale to 0 to 100% at end
     $l   = ( $max + $min ) / 2;
-            
+
     // saturation calculation. Also 0 to 1, scale to percent at end.
     $d   = $max - $min;
     if( $d == 0 ){
 
         // achromatic (grey) so hue and saturation both zero
-        $h = $s = 0; 
+        $h = $s = 0;
 
     } else {
 
@@ -1333,7 +1337,7 @@ function hex2hsl($RGB, $ladj = 0)
 
     //put the values in an array and scale the saturation and lightness to be percentages
     $hsl = array( round( $h), round( $s*100), round( $l*100) );
-    
+
     // Return array
     return $hsl;
 }
@@ -1348,14 +1352,14 @@ function hex2hsl($RGB, $ladj = 0)
 function _price($amount)
 {
     try {
-        
+
         // Get currency settings
         $currency = settings('currency');
 
         return money($amount, $currency->code, true);
 
     } catch (\Throwable $th) {
-        
+
         // Something went wrong
         return $amount;
 
@@ -1381,8 +1385,8 @@ function countryFlag($code)
 function is_localhost()
 {
     try {
-        
-        // check 
+
+        // check
         if (isset($_SERVER['REMOTE_ADDR'])) {
             return in_array($_SERVER['REMOTE_ADDR'], array('127.0.0.1', '::1')) ? true : false;
         }
@@ -1407,7 +1411,7 @@ function compute_hash($secret, $payload)
     $base64Hash = base64_encode(hex2bin($hexHash));
     return $base64Hash;
 }
- 
+
 /**
  * Verify Hash
  *
@@ -1467,16 +1471,16 @@ function generate_jazzcash_hash($payload)
 function category_title($type, $category)
 {
     try {
-        
+
         // Get current locale
         $locale = strtolower(app()->getLocale());
 
         // Check type
         if ($type === 'projects') {
-            
+
             // Check if category has translations
             if ($category->translation()->count()) {
-                
+
                 // Get category translations
                 $trans = $category->translation;
 
@@ -1485,10 +1489,10 @@ function category_title($type, $category)
 
                 // Loop through translations
                 foreach ($trans as $t) {
-                    
+
                     // Check if there is translation for current locale
                     if (strtolower($t->language_code) == $locale) {
-                        
+
                         // Set name
                         $name = $t->language_value;
                         break;
@@ -1526,7 +1530,7 @@ function category_title($type, $category)
  * @param int $limit
  * @return string
  */
-function add_3_dots($string, $limit, $repl = "...") 
+function add_3_dots($string, $limit, $repl = "...")
 {
     if(strlen($string) > $limit) {
         return mb_strimwidth($string, 0, $limit, "...");
@@ -1542,7 +1546,7 @@ function add_3_dots($string, $limit, $repl = "...")
  * @param integer $maxRating
  * @return string
  */
-function render_star_rating($rating, $width = "1rem", $height = "1rem", $empty_color = "#a6a6a6", $full_color = "#ffb322") 
+function render_star_rating($rating, $width = "1rem", $height = "1rem", $empty_color = "#a6a6a6", $full_color = "#ffb322")
 {
 
     // Full star
@@ -1576,38 +1580,53 @@ function render_star_rating($rating, $width = "1rem", $height = "1rem", $empty_c
 function placeholder_img()
 {
     try {
-        
+
         // Get appearance settings
         $settings = settings('appearance');
 
         // Check if has placeholder image
         if ($settings->placeholder) {
-            
+
             // Get image path
             $path = public_path('storage/' . $settings->placeholder->file_folder . '/' . $settings->placeholder->uid . '.' . $settings->placeholder->file_extension);
 
             // Check if this image exists
             if (File::exists($path)) {
-                
+
+                if (SYSTEM_PROCESSING_DIRECTORY == 'public') {
+                    return url('storage/' . $settings->placeholder->file_folder . '/' . $settings->placeholder->uid . '.' . $settings->placeholder->file_extension);
+                }
+
                 // Return this image
                 return url('public/storage/' . $settings->placeholder->file_folder . '/' . $settings->placeholder->uid . '.' . $settings->placeholder->file_extension);
 
             }
 
+            if (SYSTEM_PROCESSING_DIRECTORY == 'public') {
+                return asset('default/default-placeholder.jpg');
+            }
+
             // If does not exists return default image
-            return url('public/storage/default/default-placeholder.jpg');
+            return asset('public/default/default-placeholder.jpg');
 
         } else {
 
-            // Not found
-            return url('public/storage/default/default-placeholder.jpg');
+            if (SYSTEM_PROCESSING_DIRECTORY == 'public') {
+                return asset('default/default-placeholder.jpg');
+            }
 
+            // If does not exists return default image
+            return asset('public/default/default-placeholder.jpg');
         }
 
     } catch (\Throwable $th) {
-        
-        // Something went wrong, return default image
-        return url('public/storage/default/default-placeholder.jpg');
+
+        if (SYSTEM_PROCESSING_DIRECTORY == 'public') {
+            return asset('default/default-placeholder.jpg');
+        }
+
+        // If does not exists return default image
+        return asset('public/default/default-placeholder.jpg');
 
     }
 }
@@ -1620,9 +1639,14 @@ function placeholder_img()
 function livewire_asset_path()
 {
     try {
-        
+
         $manifest          = json_decode(file_get_contents(base_path('vendor/livewire/livewire/dist/manifest.json')), true);
         $versionedFileName = $manifest['/livewire.js'];
+
+        if (SYSTEM_PROCESSING_DIRECTORY == 'public') {
+            return url("vendor/livewire{$versionedFileName}");
+        }
+
         return url("public/vendor/livewire{$versionedFileName}");
 
     } catch (\Throwable $th) {
@@ -1658,7 +1682,7 @@ function convertToNumber($value) {
 function readable_number($n)
 {
     try {
-        
+
         if ($n >= 0 && $n < 1000) {
             // 1 - 999
             $n_format = floor($n);
@@ -1680,7 +1704,7 @@ function readable_number($n)
             $n_format = floor($n / 1000000000000);
             $suffix = 'T+';
         }
-    
+
         return !empty($n_format . $suffix) ? $n_format . $suffix : 0;
 
     } catch (\Throwable $th) {
@@ -1697,19 +1721,19 @@ function readable_number($n)
 function current_theme()
 {
     try {
-        
+
         // Get appearance settings
         $settings = settings('appearance');
 
         // Check if theme switcher enabled
         if ($settings->is_theme_switcher) {
-            
+
             // Get cookies
             $cookie = Cookie::get('default_theme');
 
             // Check cookie
             if ($cookie && $cookie === 'light') {
-                
+
                 // Light mode
                 return "light";
 
@@ -1737,11 +1761,11 @@ function current_theme()
         }
 
     } catch (\Throwable $th) {
-        
+
         // Something went wrong
         return 'light';
 
-    }    
+    }
 }
 
 
@@ -1753,7 +1777,7 @@ function current_theme()
 function pending_admin_notifications():array
 {
     try {
-        
+
         // Count pending users
         $count_pending_users                  = User::where('status', 'pending')->count();
 
@@ -1835,7 +1859,7 @@ function pending_admin_notifications():array
         ];
 
     } catch (\Throwable $th) {
-        
+
         // Error
         return [
             'count_pending_users'                  => 0,
@@ -1871,7 +1895,7 @@ function pending_admin_notifications():array
 function check_user_level()
 {
     try {
-        
+
         // Get current user
         $user          = auth()->user();
 
@@ -1883,7 +1907,7 @@ function check_user_level()
 
         // Check account type
         if ($account_type === 'seller') {
-            
+
             // Get sales
             $sales_count = (int)$user->sales()->count();
 
@@ -1896,7 +1920,7 @@ function check_user_level()
 
             // Check if there is a new level
             if ($next_level) {
-                
+
                 // Update user's current level
                 $user->level_id = $next_level->id;
                 $user->save();
@@ -1917,7 +1941,7 @@ function check_user_level()
 
             // Check if there is a new level
             if ($next_level) {
-                
+
                 // Update user's current level
                 $user->level_id = $next_level->id;
                 $user->save();
@@ -1927,7 +1951,7 @@ function check_user_level()
         }
 
     } catch (\Throwable $th) {
-        
+
         // Something went wrong
         return;
 
@@ -1945,10 +1969,10 @@ function check_user_level()
 function payment_gateway($slug, $update = false)
 {
     try {
-        
+
         // Check if want to update cache
         if ($update) {
-                
+
             // Remove it from cache
             Cache::forget('payment_gateway_settings_' . $slug);
 
@@ -1962,7 +1986,7 @@ function payment_gateway($slug, $update = false)
 
                 // Check if exists
                 if ($gateway) {
-                    
+
                     // Return settings
                     return $gateway;
 
@@ -1978,9 +2002,22 @@ function payment_gateway($slug, $update = false)
         }
 
     } catch (\Throwable $th) {
-        
+
         // Not found, return an empty object
         return (object)[];
 
-    }    
+    }
+}
+
+if (!function_exists('getDynamicAsset')) {
+    function getDynamicAsset($path = null) {
+        if ($path) {
+            if (SYSTEM_PROCESSING_DIRECTORY == 'public') {
+                return str_replace('public', '', $path);
+            }
+            return $path;
+        }
+        return null;
+    }
+
 }

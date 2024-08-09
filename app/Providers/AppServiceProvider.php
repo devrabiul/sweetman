@@ -15,7 +15,6 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         if($this->app->environment('production')) {
-
             // Force https, but not in localhost
             try {
                 if (!is_localhost()) {
@@ -23,7 +22,7 @@ class AppServiceProvider extends ServiceProvider
                 }
             } catch (\Throwable $th) {
             }
-            
+
         }
 
         if ($this->app->isLocal()) {

@@ -51,6 +51,7 @@
                 <?php if(auth()->guard()->check()): ?>
                 <div class="flex items-center justify-center">
                     <?php if (isset($component)) { $__componentOriginal039608dc70b2e4c26356f5d84408f584 = $component; } ?>
+<?php if (isset($attributes)) { $__attributesOriginal039608dc70b2e4c26356f5d84408f584 = $attributes; } ?>
 <?php $component = App\View\Components\Forms\Button::resolve([] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('forms.button'); ?>
 <?php if ($component->shouldRender()): ?>
@@ -60,6 +61,10 @@
 <?php endif; ?>
 <?php $component->withAttributes(['action' => 'start','text' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(__('messages.t_lets_get_started')),'block' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(false)]); ?>
 <?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__attributesOriginal039608dc70b2e4c26356f5d84408f584)): ?>
+<?php $attributes = $__attributesOriginal039608dc70b2e4c26356f5d84408f584; ?>
+<?php unset($__attributesOriginal039608dc70b2e4c26356f5d84408f584); ?>
 <?php endif; ?>
 <?php if (isset($__componentOriginal039608dc70b2e4c26356f5d84408f584)): ?>
 <?php $component = $__componentOriginal039608dc70b2e4c26356f5d84408f584; ?>

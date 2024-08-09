@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'name' => 'test',
+    'name' => env('APP_NAME', 'test'),
 
     /*
     |--------------------------------------------------------------------------
@@ -28,7 +28,7 @@ return [
     |
     */
 
-    'env' => 'production',
+    'env' => env('APP_ENV', 'production'),
 
     /*
     |--------------------------------------------------------------------------
@@ -41,7 +41,7 @@ return [
     |
     */
 
-    'debug' => false,
+    'debug' => env('APP_DEBUG', true),
 
     /*
     |--------------------------------------------------------------------------
@@ -54,9 +54,9 @@ return [
     |
     */
 
-    'url'       => 'https://daynightgamer.com',
+    'url'       => env('APP_URL', 'https://daynightgamer.com'),
 
-    'asset_url' => 'https://daynightgamer.com',
+    'asset_url' => env('APP_URL', 'https://daynightgamer.com'),
 
     /*
     |--------------------------------------------------------------------------

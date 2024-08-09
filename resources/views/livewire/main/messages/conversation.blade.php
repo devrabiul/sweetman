@@ -3,7 +3,7 @@
 
         {{-- Section header --}}
         <div class="header py-3 px-5">
-                
+
             {{-- Section title --}}
             <div class="">
                 <span class="text-sm font-semibold tracking-wide text-gray-700 dark:text-gray-100">{{ __('messages.t_messages') }}</span>
@@ -11,7 +11,7 @@
 
             {{-- My Profile --}}
             <div class="user-settings rtl:!mr-auto rtl:!ml-[unset]">
-                
+
                 {{-- Account settings --}}
                 <div class="settings">
                     <a href="{{ url('account/settings') }}" target="_blank" data-tooltip-target="tooltip-account-settings">
@@ -66,7 +66,7 @@
                         </div>
                     </{{ $c->uid !== $conversation->uid ? 'a' : 'div' }}>
                 @endforeach
-                
+
                 <div class="overlay"></div>
             </div>
 
@@ -109,7 +109,7 @@
                         </div>
 
                     @endif
-                    
+
                 </div>
                 <div class="chat-area-footer dark:bg-zinc-700 dark:border-zinc-700">
 
@@ -144,9 +144,9 @@
                                 </div>
 
                             </div>
-                            
+
                         </div>
-                    
+
                     @elseif ($conversation->status === 'blocked')
                         <div class="flex items-center justify-center w-full m-auto py-3">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"> <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
@@ -154,7 +154,7 @@
                         </div>
                     @endif
 
-                    
+
                 </div>
             </div>
 
@@ -229,7 +229,7 @@
                                         </div>
                                     </div>
 
-                                </button> 
+                                </button>
                             @endif
                           </div>
                     </div>
@@ -249,7 +249,7 @@
                         <div class="detail-change flex items-center justify-between">
                             <span class="text-xs text-gray-400 dark:text-gray-400">{{ __('messages.t_country') }}</span>
                             <div class="text-xs text-gray-800 dark:text-gray-200 flex items-center">
-                                <img src="{{ placeholder_img() }}" data-src="{{ countryFlag($conversation->sender->country?->code) }}" alt="{{ $conversation->sender->country?->name }}" class="lazy h-4 w-4 ltr:mr-2 rtl:ml-2 object-cover">  
+                                <img src="{{ placeholder_img() }}" data-src="{{ countryFlag($conversation->sender->country?->code) }}" alt="{{ $conversation->sender->country?->name }}" class="lazy h-4 w-4 ltr:mr-2 rtl:ml-2 object-cover">
                                 <span>{{ $conversation->sender->country?->name }}</span>
                             </div>
                         </div>
@@ -293,10 +293,10 @@
                         <a href="{{ url('profile/' . $conversation->sender->username . '/portfolio') }}" target="_blank" class="view-more">{{ __('messages.t_view_more') }}</a>
                     </div>
                 @endif
-                
+
             </div>
         </div>
-        
+
     </div>
 </div>
 
@@ -335,8 +335,8 @@
 @endpush
 
 @push('styles')
-    
+
     {{-- Chat style --}}
-    <link rel="stylesheet" href="{{ url('public/css/chat.css') }}">
+    <link rel="stylesheet" href="{{ getDynamicAsset('public/css/chat.css') }}">
 
 @endpush

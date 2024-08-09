@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html dir="ltr">
-    
+
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -75,7 +75,7 @@
         <script defer src="{{ mix('js/app.js') }}"></script>
 
         {{-- Helpers --}}
-        <script defer src="{{ url('public/js/utils.js') }}"></script>
+        <script defer src="{{ getDynamicAsset('public/js/utils.js') }}"></script>
 
         {{-- Custom scripts --}}
         @stack('scripts')

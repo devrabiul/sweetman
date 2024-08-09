@@ -2,19 +2,19 @@
 
     {{-- Loading --}}
     <x-forms.loading />
-    
+
     {{-- Heading --}}
     <div class="mb-16">
         <div class="mx-auto max-w-7xl">
             <div class="lg:flex lg:items-center lg:justify-between">
-    
+
                 <div class="min-w-0 flex-1">
-    
+
                     {{-- Section heading --}}
                     <h2 class="text-lg font-bold leading-7 text-zinc-700 dark:text-gray-50 sm:truncate sm:text-xl sm:tracking-tight">
                         @lang('messages.t_offers')
                     </h2>
-    
+
                     {{-- Breadcrumbs --}}
                     <div class="mt-3 flex flex-col sm:flex-row sm:flex-wrap sm:space-x-6 rtl:space-x-reverse">
                         <ol class="inline-flex items-center mb-3 space-x-1 md:space-x-3 md:rtl:space-x-reverse sm:mb-0">
@@ -27,7 +27,7 @@
                                     </a>
                                 </div>
                             </li>
-            
+
                             {{-- dashboard --}}
                             <li aria-current="page">
                                 <div class="flex items-center">
@@ -37,7 +37,7 @@
                                     </a>
                                 </div>
                             </li>
-            
+
                             {{-- Offers --}}
                             <li aria-current="page">
                                 <div class="flex items-center">
@@ -47,15 +47,15 @@
                                     </span>
                                 </div>
                             </li>
-            
+
                         </ol>
                     </div>
-                    
+
                 </div>
-    
+
                 {{-- Actions --}}
                 <div class="mt-5 flex lg:mt-0 lg:ltr::ml-4 lg:rtl:mr-4">
-        
+
                     {{-- Settings --}}
                     <span class="">
                         <a href="{{ admin_url('settings/publish') }}" class="relative inline-flex items-center px-4 py-3 border border-gray-300 dark:border-zinc-600 dark:hover:bg-zinc-700 dark:text-gray-200 bg-white dark:bg-zinc-800 text-[13px] font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-primary-600 focus:border-primary-600 shadow-sm rounded">
@@ -64,7 +64,7 @@
                     </span>
 
                 </div>
-    
+
             </div>
         </div>
     </div>
@@ -90,10 +90,10 @@
 
                         {{-- Date --}}
                         <th class="font-bold tracking-wider text-gray-600 px-5 py-4.5 text-center border-b-0 whitespace-nowrap text-xs uppercase dark:text-zinc-300 first:ltr:rounded-l-md last:ltr:rounded-r-md first:rtl:rounded-r-md last:rtl:rounded-l-md">@lang('messages.t_date')</th>
-                        
+
                         {{-- Options --}}
                         <th class="font-bold tracking-wider text-gray-600 px-5 py-4.5 text-center border-b-0 whitespace-nowrap text-xs uppercase dark:text-zinc-300 first:ltr:rounded-l-md last:ltr:rounded-r-md first:rtl:rounded-r-md last:rtl:rounded-l-md">@lang('messages.t_options')</th>
-                        
+
                     </tr>
                 </thead>
                 <thead>
@@ -114,20 +114,20 @@
 
                                         </div>
                                         <div class="flex items-center space-x-3 rtl:space-x-reverse text-xs font-normal text-gray-400 dark:text-zinc-300">
-                
+
                                             {{-- Details --}}
                                             <a href="{{ admin_url('users/details/' . $offer->buyer->uid) }}" class="dark:text-zinc-300 whitespace-nowrap hover:text-gray-600 hover:underline">
-                                                @lang('messages.t_user_details')   
+                                                @lang('messages.t_user_details')
                                             </a>
-                        
+
                                             {{-- Divider --}}
                                             <div class="mx-2 my-0.5 text-gray-200 dark:text-zinc-600">|</div>
 
                                             {{-- View profile --}}
                                             <a href="{{ url('profile', $offer->buyer->username) }}" target="_blank" class="dark:text-zinc-300 whitespace-nowrap hover:text-gray-600 hover:underline">
-                                                @lang('messages.t_view_profile')    
+                                                @lang('messages.t_view_profile')
                                             </a>
-                        
+
                                         </div>
                                     </div>
                                 </div>
@@ -160,20 +160,20 @@
 
                                         </div>
                                         <div class="flex items-center space-x-3 rtl:space-x-reverse text-xs font-normal text-gray-400 dark:text-zinc-300">
-                
+
                                             {{-- Details --}}
                                             <a href="{{ admin_url('users/details/' . $offer->freelancer->uid) }}" class="dark:text-zinc-300 whitespace-nowrap hover:text-gray-600 hover:underline">
-                                                @lang('messages.t_user_details')   
+                                                @lang('messages.t_user_details')
                                             </a>
-                        
+
                                             {{-- Divider --}}
                                             <div class="mx-2 my-0.5 text-gray-200 dark:text-zinc-600">|</div>
 
                                             {{-- View profile --}}
                                             <a href="{{ url('profile', $offer->freelancer->username) }}" target="_blank" class="dark:text-zinc-300 whitespace-nowrap hover:text-gray-600 hover:underline">
-                                                @lang('messages.t_view_profile')    
+                                                @lang('messages.t_view_profile')
                                             </a>
-                        
+
                                         </div>
                                     </div>
                                 </div>
@@ -287,7 +287,7 @@
                                         </button>
                                         <x-forms.tooltip id="tooltip-actions-delete-payment-{{ $offer->uid }}" :text="__('messages.t_delete_offer')" />
                                     </div>
-                                        
+
                                 </div>
                             </td>
 
@@ -315,11 +315,11 @@
 
                                     {{-- Accept --}}
                                     <button
-                                        type="button" 
+                                        type="button"
                                         wire:click="approve('{{ $offer->uid }}')"
                                         wire:loading.attr="disabled"
                                         class="inline-flex justify-center items-center rounded border font-semibold focus:outline-none px-3 py-2 leading-5 text-xs tracking-wide border-transparent bg-green-500 text-white hover:bg-green-600 focus:ring focus:ring-green-500 focus:ring-opacity-25 disabled:bg-gray-200 disabled:hover:bg-gray-200 disabled:text-gray-500 disabled:cursor-not-allowed">
-                                        
+
                                         {{-- Loading indicator --}}
                                         <div wire:loading wire:target="approve('{{ $offer->uid }}')">
                                             <svg role="status" class="inline w-4 h-4 text-gray-700 animate-spin" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -353,17 +353,17 @@
                                 <div class="w-fill mb-6">
                                     {{-- Form control --}}
                                     <div class="relative w-full shadow-sm">
-                    
+
                                         {{-- Input --}}
                                         <textarea wire:model.defer="rejection_reason" id="bid-report-description-input" class="{{ $errors->first('rejection_reason') ? 'focus:ring-red-600 focus:border-red-600 border-red-500' : 'focus:ring-primary-600 focus:border-primary-600 border-gray-300' }} border text-gray-900 text-sm rounded-lg font-medium block w-full ltr:pr-12 rtl:pl-12 p-4  dark:bg-zinc-700 dark:border-zinc-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 placeholder:font-normal" rows="8" placeholder="{{ __('messages.t_enter_rejection_reason') }}"></textarea>
-                    
+
                                         {{-- Icon --}}
                                         <div class="absolute inset-y-0 ltr:right-0 rtl:left-0 flex items-center ltr:pr-3 rtl:pl-3 font-bold text-xs tracking-widest dark:text-gray-300 uppercase">
                                             <svg class="w-5 h-5 text-gray-500" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16 2H8C4.691 2 2 4.691 2 8v13a1 1 0 0 0 1 1h13c3.309 0 6-2.691 6-6V8c0-3.309-2.691-6-6-6zm4 14c0 2.206-1.794 4-4 4H4V8c0-2.206 1.794-4 4-4h8c2.206 0 4 1.794 4 4v8z"></path><path d="M11 6h2v8h-2zm0 10h2v2h-2z"></path></svg>
                                         </div>
-                    
+
                                     </div>
-                    
+
                                     {{-- Error --}}
                                     @error('rejection_reason')
                                         <p class="mt-1.5 text-[13px] tracking-wide text-red-600 font-medium ltr:pl-1 rtl:pr-1">
@@ -385,11 +385,11 @@
 
                                     {{-- Reject --}}
                                     <button
-                                        type="button" 
+                                        type="button"
                                         wire:click="reject('{{ $offer->uid }}')"
                                         wire:loading.attr="disabled"
                                         class="inline-flex justify-center items-center rounded border font-semibold focus:outline-none px-3 py-2 leading-5 text-xs tracking-wide border-transparent bg-red-500 text-white hover:bg-red-600 focus:ring focus:ring-red-500 focus:ring-opacity-25 disabled:bg-gray-200 disabled:hover:bg-gray-200 disabled:text-gray-500 disabled:cursor-not-allowed">
-                                        
+
                                         {{-- Loading indicator --}}
                                         <div wire:loading wire:target="reject('{{ $offer->uid }}')">
                                             <svg role="status" class="inline w-4 h-4 text-gray-700 animate-spin" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -419,7 +419,7 @@
                             {{-- Modal content --}}
                             <x-slot name="content">
                                 <div class="w-full divide-y divide-gray-300 space-y-8">
-                                    
+
                                     {{-- Message --}}
                                     <div class="w-full">
                                         <span class="mb-2 block text-sm font-bold tracking-wide text-zinc-700">@lang('messages.t_offer')</span>
@@ -433,7 +433,7 @@
                                         <div class="w-full">
                                             <span class="mt-8 mb-2 block text-sm font-bold tracking-wide text-zinc-700">@lang('messages.t_admin_rejection_reason')</span>
                                             <span class="text-slate-500 text-sm">
-                                                {{ $offer->admin_rejection_reason }}   
+                                                {{ $offer->admin_rejection_reason }}
                                             </span>
                                         </div>
                                     @endif
@@ -443,11 +443,11 @@
                                         <div class="w-full">
                                             <span class="mt-8 mb-2 block text-sm font-bold tracking-wide text-zinc-700">@lang('messages.t_freelancer_rejection_reason')</span>
                                             <span class="text-slate-500 text-sm">
-                                                {{ $offer->freelancer_rejection_reason }}   
+                                                {{ $offer->freelancer_rejection_reason }}
                                             </span>
                                         </div>
                                     @endif
-    
+
                                     {{-- Payment status --}}
                                     <div class="w-full">
                                         <span class="mt-8 mb-2 block text-sm font-bold tracking-wide text-zinc-700">@lang('messages.t_payment_status')</span>
@@ -470,7 +470,7 @@
                                     <div class="w-full">
                                         <span class="mt-8 mb-2 block text-sm font-bold tracking-wide text-zinc-700">@lang('messages.t_commission_from_freelancer')</span>
                                         <span class="font-bold text-zinc-700 text-sm">
-                                            @money($offer->budget_freelancer_fee, settings('currency')->code, true)    
+                                            @money($offer->budget_freelancer_fee, settings('currency')->code, true)
                                         </span>
                                     </div>
 
@@ -478,20 +478,20 @@
                                     <div class="w-full">
                                         <span class="mt-8 mb-2 block text-sm font-bold tracking-wide text-zinc-700">@lang('messages.t_commission_from_employer')</span>
                                         <span class="font-bold text-zinc-700 text-sm">
-                                            @money($offer->budget_buyer_fee, settings('currency')->code, true)    
+                                            @money($offer->budget_buyer_fee, settings('currency')->code, true)
                                         </span>
                                     </div>
-    
+
                                     {{-- Attachments --}}
                                     @if ($offer->attachments && $offer->attachments()->count())
                                         <div class="w-full">
-                                            
+
                                             {{-- Label --}}
                                             <span class="mt-8 mb-2 block text-sm font-bold tracking-wide text-zinc-700">@lang('messages.t_attachments')</span>
-        
+
                                             {{-- Files --}}
                                             <ul role="list" class="divide-y divide-gray-200 rounded-md border border-gray-200 dark:divide-zinc-700 dark:border-zinc-700">
-                            
+
                                                 @foreach ($offer->attachments as $attachment)
                                                     <li class="flex items-center justify-between py-3 ltr:pl-3 ltr:pr-4 rtl:pr-3 rtl:pl-4 text-sm">
                                                         <div class="flex w-0 flex-1 items-center">
@@ -507,65 +507,65 @@
                                                         </div>
                                                     </li>
                                                 @endforeach
-                                                
+
                                             </ul>
-    
+
                                         </div>
                                     @endif
-    
+
                                     {{-- Delivered work --}}
                                     @if ($offer->work && $offer->work()->count())
                                         <div class="w-full">
-                                                
+
                                             {{-- Label --}}
                                             <span class="mt-8 mb-2 block text-sm font-bold tracking-wide text-zinc-700">@lang('messages.t_delivered_work')</span>
-    
+
                                             {{-- Files --}}
                                             @foreach ($offer->work()->latest()->get() as $file)
                                                 <div class="mt-6 flex" wire:key="employer-delivered-work-{{ $file->uid }}">
-    
+
                                                     <div class="w-10 flex flex-col items-center">
-                                                        
+
                                                         {{-- File extension preview --}}
                                                         <div class="fiv-sqo fiv-icon-{{ $file->file_extension }} text-4xl"></div>
-    
+
                                                         <div class="pt-4">
                                                             <svg class="text-gray-400 dark:text-zinc-600" width="1" height="40" viewBox="0 0 1 47" fill="none" xmlns="http://www.w3.org/2000/svg"> <line x1="0.5" y1="2.18557e-08" x2="0.499998" y2="47" stroke="currentColor" stroke-dasharray="2 2"></line> </svg>
                                                         </div>
-    
+
                                                     </div>
-    
+
                                                     {{-- File details --}}
                                                     <div class="ltr:pl-3 rtl:pr-3">
-    
+
                                                         {{-- File name --}}
                                                         <p class="focus:outline-none text-sm font-semibold leading-normal text-gray-800 pb-1 -mt-1 dark:text-zinc-200">
                                                             {{ $file->uid }}.{{ $file->file_extension }}
                                                         </p>
-    
+
                                                         {{-- Date / Download --}}
                                                         <div class="focus:outline-none text-xs leading-3 text-gray-500 pt-1 space-x-2 rtl:space-x-reverse dark:text-zinc-400">
-                                                            
+
                                                             {{-- Download --}}
                                                             <a href="{{ url('uploads/offers/work', $file->uid . '.' . $file->file_extension) }}" class="text-primary-600 hover:underline">@lang('messages.t_download')</a>
-    
+
                                                             {{-- Divider --}}
                                                             <span class="text-gray-300 dark:text-zinc-600" aria-hidden="true">|</span>
-    
+
                                                             {{-- Date --}}
                                                             <span>{{ format_date($file->created_at) }}</span>
-    
+
                                                         </div>
-    
+
                                                         {{-- Notes --}}
                                                         <p class="focus:outline-none pt-4 text-sm leading-4 text-gray-600 whitespace-pre-line dark:text-zinc-200">
                                                             {{ $file->notes }}
                                                         </p>
                                                     </div>
-    
+
                                                 </div>
                                             @endforeach
-    
+
                                         </div>
                                     @endif
 
@@ -632,5 +632,5 @@
 @endpush
 
 @push('styles')
-    <link rel="stylesheet" href="{{ url('public/js/plugins/file-icon-vectors/file-icon-vectors.min.css') }}" />
+    <link rel="stylesheet" href="{{ getDynamicAsset('public/js/plugins/file-icon-vectors/file-icon-vectors.min.css') }}" />
 @endpush

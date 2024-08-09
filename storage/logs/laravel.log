@@ -1,0 +1,108 @@
+[2024-08-05 20:34:16] laravel.EMERGENCY: Unable to create configured logger. Using emergency logger. {"exception":"[object] (TypeError(code: 0): Monolog\\Logger::__construct(): Argument #1 ($name) must be of type string, null given, called in /opt/lampp/htdocs/sweetman/vendor/laravel/framework/src/Illuminate/Log/LogManager.php on line 309 at /opt/lampp/htdocs/sweetman/vendor/monolog/monolog/src/Monolog/Logger.php:175)
+[stacktrace]
+#0 /opt/lampp/htdocs/sweetman/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(309): Monolog\\Logger->__construct()
+#1 /opt/lampp/htdocs/sweetman/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(222): Illuminate\\Log\\LogManager->createDailyDriver()
+#2 /opt/lampp/htdocs/sweetman/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(137): Illuminate\\Log\\LogManager->resolve()
+#3 /opt/lampp/htdocs/sweetman/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(124): Illuminate\\Log\\LogManager->get()
+#4 /opt/lampp/htdocs/sweetman/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(681): Illuminate\\Log\\LogManager->driver()
+#5 /opt/lampp/htdocs/sweetman/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(317): Illuminate\\Log\\LogManager->error()
+#6 /opt/lampp/htdocs/sweetman/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(278): Illuminate\\Foundation\\Exceptions\\Handler->reportThrowable()
+#7 /opt/lampp/htdocs/sweetman/vendor/nunomaduro/collision/src/Adapters/Laravel/ExceptionHandler.php(46): Illuminate\\Foundation\\Exceptions\\Handler->report()
+#8 /opt/lampp/htdocs/sweetman/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(523): NunoMaduro\\Collision\\Adapters\\Laravel\\ExceptionHandler->report()
+#9 /opt/lampp/htdocs/sweetman/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(203): Illuminate\\Foundation\\Console\\Kernel->reportException()
+#10 /opt/lampp/htdocs/sweetman/artisan(35): Illuminate\\Foundation\\Console\\Kernel->handle()
+#11 {main}
+"} 
+[2024-08-05 20:34:16] laravel.ERROR: There are no commands defined in the "ide-helper" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"ide-helper\" namespace. at /opt/lampp/htdocs/sweetman/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /opt/lampp/htdocs/sweetman/vendor/symfony/console/Application.php(720): Symfony\\Component\\Console\\Application->findNamespace()
+#1 /opt/lampp/htdocs/sweetman/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find()
+#2 /opt/lampp/htdocs/sweetman/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun()
+#3 /opt/lampp/htdocs/sweetman/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run()
+#4 /opt/lampp/htdocs/sweetman/artisan(35): Illuminate\\Foundation\\Console\\Kernel->handle()
+#5 {main}
+"} 
+[2024-08-05 20:34:18] laravel.EMERGENCY: Unable to create configured logger. Using emergency logger. {"exception":"[object] (InvalidArgumentException(code: 0): Log [] is not defined. at /opt/lampp/htdocs/sweetman/vendor/laravel/framework/src/Illuminate/Log/LogManager.php:212)
+[stacktrace]
+#0 /opt/lampp/htdocs/sweetman/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(137): Illuminate\\Log\\LogManager->resolve()
+#1 /opt/lampp/htdocs/sweetman/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(124): Illuminate\\Log\\LogManager->get()
+#2 /opt/lampp/htdocs/sweetman/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(681): Illuminate\\Log\\LogManager->driver()
+#3 /opt/lampp/htdocs/sweetman/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(317): Illuminate\\Log\\LogManager->error()
+#4 /opt/lampp/htdocs/sweetman/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(278): Illuminate\\Foundation\\Exceptions\\Handler->reportThrowable()
+#5 /opt/lampp/htdocs/sweetman/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(523): Illuminate\\Foundation\\Exceptions\\Handler->report()
+#6 /opt/lampp/htdocs/sweetman/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(203): Illuminate\\Foundation\\Console\\Kernel->reportException()
+#7 /opt/lampp/htdocs/sweetman/artisan(35): Illuminate\\Foundation\\Console\\Kernel->handle()
+#8 {main}
+"} 
+[2024-08-05 20:34:18] laravel.ERROR: syntax error, unexpected token "," {"exception":"[object] (ParseError(code: 0): syntax error, unexpected token \",\" at /opt/lampp/htdocs/sweetman/config/app.php:31)
+[stacktrace]
+#0 /opt/lampp/htdocs/sweetman/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/LoadConfiguration.php(39): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->loadConfigurationFiles()
+#1 /opt/lampp/htdocs/sweetman/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(263): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->bootstrap()
+#2 /opt/lampp/htdocs/sweetman/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(447): Illuminate\\Foundation\\Application->bootstrapWith()
+#3 /opt/lampp/htdocs/sweetman/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(199): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#4 /opt/lampp/htdocs/sweetman/artisan(35): Illuminate\\Foundation\\Console\\Kernel->handle()
+#5 {main}
+"} 
+[2024-08-05 20:34:18] laravel.EMERGENCY: Unable to create configured logger. Using emergency logger. {"exception":"[object] (InvalidArgumentException(code: 0): Log [] is not defined. at /opt/lampp/htdocs/sweetman/vendor/laravel/framework/src/Illuminate/Log/LogManager.php:212)
+[stacktrace]
+#0 /opt/lampp/htdocs/sweetman/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(137): Illuminate\\Log\\LogManager->resolve()
+#1 /opt/lampp/htdocs/sweetman/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(124): Illuminate\\Log\\LogManager->get()
+#2 /opt/lampp/htdocs/sweetman/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(681): Illuminate\\Log\\LogManager->driver()
+#3 /opt/lampp/htdocs/sweetman/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(317): Illuminate\\Log\\LogManager->error()
+#4 /opt/lampp/htdocs/sweetman/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(278): Illuminate\\Foundation\\Exceptions\\Handler->reportThrowable()
+#5 /opt/lampp/htdocs/sweetman/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(523): Illuminate\\Foundation\\Exceptions\\Handler->report()
+#6 /opt/lampp/htdocs/sweetman/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(203): Illuminate\\Foundation\\Console\\Kernel->reportException()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle()
+#8 {main}
+"} 
+[2024-08-05 20:34:18] laravel.ERROR: syntax error, unexpected token "," {"exception":"[object] (ParseError(code: 0): syntax error, unexpected token \",\" at /opt/lampp/htdocs/sweetman/config/app.php:31)
+[stacktrace]
+#0 /opt/lampp/htdocs/sweetman/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/LoadConfiguration.php(39): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->loadConfigurationFiles()
+#1 /opt/lampp/htdocs/sweetman/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(263): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->bootstrap()
+#2 /opt/lampp/htdocs/sweetman/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(447): Illuminate\\Foundation\\Application->bootstrapWith()
+#3 /opt/lampp/htdocs/sweetman/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(199): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#4 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle()
+#5 {main}
+"} 
+[2024-08-05 20:34:18] laravel.EMERGENCY: Unable to create configured logger. Using emergency logger. {"exception":"[object] (InvalidArgumentException(code: 0): Log [] is not defined. at /opt/lampp/htdocs/sweetman/vendor/laravel/framework/src/Illuminate/Log/LogManager.php:212)
+[stacktrace]
+#0 /opt/lampp/htdocs/sweetman/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(137): Illuminate\\Log\\LogManager->resolve()
+#1 /opt/lampp/htdocs/sweetman/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(124): Illuminate\\Log\\LogManager->get()
+#2 /opt/lampp/htdocs/sweetman/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(681): Illuminate\\Log\\LogManager->driver()
+#3 /opt/lampp/htdocs/sweetman/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(317): Illuminate\\Log\\LogManager->error()
+#4 /opt/lampp/htdocs/sweetman/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(278): Illuminate\\Foundation\\Exceptions\\Handler->reportThrowable()
+#5 /opt/lampp/htdocs/sweetman/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(523): Illuminate\\Foundation\\Exceptions\\Handler->report()
+#6 /opt/lampp/htdocs/sweetman/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(203): Illuminate\\Foundation\\Console\\Kernel->reportException()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle()
+#8 {main}
+"} 
+[2024-08-05 20:34:18] laravel.ERROR: syntax error, unexpected token "," {"exception":"[object] (ParseError(code: 0): syntax error, unexpected token \",\" at /opt/lampp/htdocs/sweetman/config/app.php:31)
+[stacktrace]
+#0 /opt/lampp/htdocs/sweetman/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/LoadConfiguration.php(39): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->loadConfigurationFiles()
+#1 /opt/lampp/htdocs/sweetman/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(263): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->bootstrap()
+#2 /opt/lampp/htdocs/sweetman/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(447): Illuminate\\Foundation\\Application->bootstrapWith()
+#3 /opt/lampp/htdocs/sweetman/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(199): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#4 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle()
+#5 {main}
+"} 
+[2024-08-05 20:35:30] laravel.EMERGENCY: Unable to create configured logger. Using emergency logger. {"exception":"[object] (InvalidArgumentException(code: 0): Log [] is not defined. at /opt/lampp/htdocs/sweetman/vendor/laravel/framework/src/Illuminate/Log/LogManager.php:212)
+[stacktrace]
+#0 /opt/lampp/htdocs/sweetman/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(137): Illuminate\\Log\\LogManager->resolve()
+#1 /opt/lampp/htdocs/sweetman/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(124): Illuminate\\Log\\LogManager->get()
+#2 /opt/lampp/htdocs/sweetman/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(681): Illuminate\\Log\\LogManager->driver()
+#3 /opt/lampp/htdocs/sweetman/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(317): Illuminate\\Log\\LogManager->error()
+#4 /opt/lampp/htdocs/sweetman/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(278): Illuminate\\Foundation\\Exceptions\\Handler->reportThrowable()
+#5 /opt/lampp/htdocs/sweetman/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(523): Illuminate\\Foundation\\Exceptions\\Handler->report()
+#6 /opt/lampp/htdocs/sweetman/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(203): Illuminate\\Foundation\\Console\\Kernel->reportException()
+#7 /opt/lampp/htdocs/sweetman/artisan(35): Illuminate\\Foundation\\Console\\Kernel->handle()
+#8 {main}
+"} 
+[2024-08-05 20:35:30] laravel.ERROR: syntax error, unexpected token "," {"exception":"[object] (ParseError(code: 0): syntax error, unexpected token \",\" at /opt/lampp/htdocs/sweetman/config/app.php:57)
+[stacktrace]
+#0 /opt/lampp/htdocs/sweetman/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/LoadConfiguration.php(39): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->loadConfigurationFiles()
+#1 /opt/lampp/htdocs/sweetman/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(263): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->bootstrap()
+#2 /opt/lampp/htdocs/sweetman/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(447): Illuminate\\Foundation\\Application->bootstrapWith()
+#3 /opt/lampp/htdocs/sweetman/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(199): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#4 /opt/lampp/htdocs/sweetman/artisan(35): Illuminate\\Foundation\\Console\\Kernel->handle()
+#5 {main}
+"} 

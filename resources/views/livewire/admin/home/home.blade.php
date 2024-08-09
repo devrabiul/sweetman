@@ -226,7 +226,7 @@
         {{-- Map --}}
         <div class="col-span-12">
             <div class="mb-6 bg-white dark:bg-zinc-800 shadow-sm rounded-md border border-gray-200 dark:border-zinc-700">
-    
+
                 {{-- Section title --}}
                 <div class="border-b px-8 py-4 rounded-t-md">
                     <div class="ltr:-ml-4 rtl:-mr-4 -mt-4 flex justify-between items-center flex-wrap sm:flex-nowrap">
@@ -238,12 +238,12 @@
                         </div>
                     </div>
                 </div>
-    
+
                 {{-- Section content --}}
                 <div class="px-8 py-6 min-h-[500px] grid">
                     <div id="world-map-visitors" class="w-full h-full"></div>
                 </div>
-    
+
             </div>
         </div>
 
@@ -357,8 +357,8 @@
 
 @push('scripts')
     {{-- jVectorMap Plugin --}}
-    <script defer src="{{ url('public/js/plugins/jvectormap/jquery-jvectormap-2.0.5.min.js') }}"></script>
-    <script defer src="{{ url('public/js/plugins/jvectormap/jquery-jvectormap-world-mill.js') }}"></script>
+    <script defer src="{{ getDynamicAsset('public/js/plugins/jvectormap/jquery-jvectormap-2.0.5.min.js') }}"></script>
+    <script defer src="{{ getDynamicAsset('public/js/plugins/jvectormap/jquery-jvectormap-world-mill.js') }}"></script>
 
     {{-- ApexCharts Plugin --}}
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>

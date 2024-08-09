@@ -2,19 +2,19 @@
 
     {{-- Loading --}}
     <x-forms.loading />
-    
+
     {{-- Heading --}}
     <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 mb-16">
         <div class="mx-auto max-w-7xl">
             <div class="lg:flex lg:items-center lg:justify-between">
-    
+
                 <div class="min-w-0 flex-1">
-    
+
                     {{-- Section heading --}}
                     <h2 class="text-lg font-bold leading-7 text-zinc-700 dark:text-gray-50 sm:truncate sm:text-xl sm:tracking-tight">
                         @lang('messages.t_received_offers')
                     </h2>
-    
+
                     {{-- Breadcrumbs --}}
                     <div class="mt-3 flex flex-col sm:flex-row sm:flex-wrap sm:space-x-6 rtl:space-x-reverse">
                         <ol class="inline-flex items-center mb-3 space-x-1 md:space-x-3 md:rtl:space-x-reverse sm:mb-0">
@@ -27,7 +27,7 @@
                                     </a>
                                 </div>
                             </li>
-            
+
                             {{-- My dashboard --}}
                             <li aria-current="page">
                                 <div class="flex items-center">
@@ -37,7 +37,7 @@
                                     </a>
                                 </div>
                             </li>
-            
+
                             {{-- Offers --}}
                             <li aria-current="page">
                                 <div class="flex items-center">
@@ -47,24 +47,24 @@
                                     </span>
                                 </div>
                             </li>
-            
+
                         </ol>
                     </div>
-                    
+
                 </div>
-    
+
                 {{-- Actions --}}
                 <div class="mt-5 flex lg:mt-0 lg:ltr::ml-4 lg:rtl:mr-4 justify-between">
-        
+
                     {{-- Switch to buying --}}
                     <span class="block">
                         <a href="{{ url('/') }}" class="inline-flex items-center rounded-sm border border-gray-300 bg-white px-4 py-2 text-[13px] font-semibold text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 dark:bg-zinc-800 dark:border-zinc-800 dark:text-zinc-100 dark:hover:bg-zinc-900 dark:focus:ring-offset-zinc-900 dark:focus:ring-zinc-900">
                             @lang('messages.t_switch_to_buying')
                         </a>
                     </span>
-        
+
                 </div>
-    
+
             </div>
         </div>
     </div>
@@ -191,10 +191,10 @@
                                     @break
 
                                     @default
-                                        
+
                                 @endswitch
                             </td>
-                            
+
                             {{-- Payment status --}}
                             <td class="px-5 py-3 first:ltr:rounded-l-md last:ltr:rounded-r-md first:rtl:rounded-r-md last:rtl:rounded-l-md text-center">
                                 @switch($offer->payment_status)
@@ -221,7 +221,7 @@
                                     @break
 
                                     @default
-                                        
+
                                 @endswitch
                             </td>
 
@@ -264,7 +264,7 @@
                                             <x-forms.tooltip id="tooltip-actions-cancel-{{ $offer->uid }}" :text="__('messages.t_cancel_order')" />
                                         </div>
                                     @endif
-                                        
+
                                 </div>
                             </td>
 
@@ -296,11 +296,11 @@
 
                                         {{-- Accept --}}
                                         <button
-                                            type="button" 
+                                            type="button"
                                             wire:click="accept('{{ $offer->uid }}')"
                                             wire:loading.attr="disabled"
                                             class="inline-flex justify-center items-center rounded border font-semibold focus:outline-none px-3 py-2 leading-5 text-xs tracking-wide border-transparent bg-green-500 text-white hover:bg-green-600 focus:ring focus:ring-green-500 focus:ring-opacity-25 disabled:bg-gray-200 disabled:hover:bg-gray-200 disabled:text-gray-500 disabled:cursor-not-allowed">
-                                            
+
                                             {{-- Loading indicator --}}
                                             <div wire:loading wire:target="accept('{{ $offer->uid }}')">
                                                 <svg role="status" class="inline w-4 h-4 text-gray-700 animate-spin" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -336,17 +336,17 @@
                                     <div class="w-fill mb-6">
                                         {{-- Form control --}}
                                         <div class="relative w-full shadow-sm">
-                        
+
                                             {{-- Input --}}
                                             <textarea wire:model.defer="reject_reason" id="bid-report-description-input" class="{{ $errors->first('reject_reason') ? 'focus:ring-red-600 focus:border-red-600 border-red-500' : 'focus:ring-primary-600 focus:border-primary-600 border-gray-300' }} border text-gray-900 text-sm rounded-lg font-medium block w-full ltr:pr-12 rtl:pl-12 p-4  dark:bg-zinc-700 dark:border-zinc-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 placeholder:font-normal" rows="8" placeholder="{{ __('messages.t_enter_rejection_reason') }}" maxlength="1500"></textarea>
-                        
+
                                             {{-- Icon --}}
                                             <div class="absolute inset-y-0 ltr:right-0 rtl:left-0 flex items-center ltr:pr-3 rtl:pl-3 font-bold text-xs tracking-widest dark:text-gray-300 uppercase">
                                                 <svg class="w-5 h-5 text-gray-500" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16 2H8C4.691 2 2 4.691 2 8v13a1 1 0 0 0 1 1h13c3.309 0 6-2.691 6-6V8c0-3.309-2.691-6-6-6zm4 14c0 2.206-1.794 4-4 4H4V8c0-2.206 1.794-4 4-4h8c2.206 0 4 1.794 4 4v8z"></path><path d="M11 6h2v8h-2zm0 10h2v2h-2z"></path></svg>
                                             </div>
-                        
+
                                         </div>
-                        
+
                                         {{-- Error --}}
                                         @error('reject_reason')
                                             <p class="mt-1.5 text-[13px] tracking-wide text-red-600 font-medium ltr:pl-1 rtl:pr-1">
@@ -368,11 +368,11 @@
 
                                         {{-- Reject --}}
                                         <button
-                                            type="button" 
+                                            type="button"
                                             wire:click="reject('{{ $offer->uid }}')"
                                             wire:loading.attr="disabled"
                                             class="inline-flex justify-center items-center rounded border font-semibold focus:outline-none px-3 py-2 leading-5 text-xs tracking-wide border-transparent bg-red-500 text-white hover:bg-red-600 focus:ring focus:ring-red-500 focus:ring-opacity-25 disabled:bg-gray-200 disabled:hover:bg-gray-200 disabled:text-gray-500 disabled:cursor-not-allowed">
-                                            
+
                                             {{-- Loading indicator --}}
                                             <div wire:loading wire:target="reject('{{ $offer->uid }}')">
                                                 <svg role="status" class="inline w-4 h-4 text-gray-700 animate-spin" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -410,13 +410,13 @@
 
                                 {{-- Attachments --}}
                                 @if ($offer->attachments && $offer->attachments()->count())
-                                        
+
                                     {{-- Divider --}}
                                     <div class="h-px bg-zinc-100 -mx-6 my-5 dark:bg-zinc-700"></div>
 
                                     {{-- Files --}}
                                     <ul role="list" class="divide-y divide-gray-200 rounded-md border border-gray-200 dark:divide-zinc-700 dark:border-zinc-700">
-                    
+
                                         @foreach ($offer->attachments as $attachment)
                                             <li class="flex items-center justify-between py-3 ltr:pl-3 ltr:pr-4 rtl:pr-3 rtl:pl-4 text-sm">
                                                 <div class="flex w-0 flex-1 items-center">
@@ -432,7 +432,7 @@
                                                 </div>
                                             </li>
                                         @endforeach
-                                        
+
                                     </ul>
 
                                 @endif
@@ -450,7 +450,7 @@
 
                                     {{-- Close button --}}
                                     <button x-on:click="close" type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ltr:ml-auto rtl:mr-auto inline-flex items-center dark:hover:bg-zinc-600 dark:hover:text-white absolute ltr:right-5 rtl:left-5">
-                                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>  
+                                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                                     </button>
 
                                     {{-- Submit a file --}}
@@ -463,7 +463,7 @@
                                             <div class="w-20 h-20 bg-gray-100 rounded-full flex items-center justify-center text-gray-400 mx-auto dark:bg-zinc-700 dark:text-zinc-300">
                                                 <svg class="w-8 h-8" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="none" d="M0 0h24v24H0z"></path><path d="M18 15v3H6v-3H4v3c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-3h-2zM7 9l1.41 1.41L11 7.83V16h2V7.83l2.59 2.58L17 9l-5-5-5 5z"></path></svg>
                                             </div>
-        
+
                                             {{-- Headline --}}
                                             <h1 class="dark:text-zinc-200 font-bold pt-3 text-gray-600 text-sm">
                                                 @lang('messages.t_send_a_file')
@@ -551,7 +551,7 @@
                                             {{-- List of files --}}
                                             <div class="w-full space-y-3">
                                                 @foreach ($offer->work as $file)
-                                                    
+
                                                     <div class="border border-slate-200 dark:border-zinc-700 px-3 py-4 rounded-md">
                                                         <div class="flex items-center justify-between w-full" wire:key="seller-submitted-offer-files-{{ $file->uid }}">
                                                             <div class="flex items-center">
@@ -605,5 +605,5 @@
 </div>
 
 @push('styles')
-    <link rel="stylesheet" href="{{ url('public/js/plugins/file-icon-vectors/file-icon-vectors.min.css') }}" />
+    <link rel="stylesheet" href="{{ getDynamicAsset('public/js/plugins/file-icon-vectors/file-icon-vectors.min.css') }}" />
 @endpush

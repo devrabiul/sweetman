@@ -7,18 +7,18 @@
 @pushOnce('scripts')
     {{-- jQuery --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    
+
     {{-- Uploader Plugin --}}
-    <script defer src="{{ url('public/js/plugins/uploader/js/jquery.fileuploader.min.js') }}" type="text/javascript"></script>
+    <script defer src="{{ getDynamicAsset('public/js/plugins/uploader/js/jquery.fileuploader.min.js') }}" type="text/javascript"></script>
 @endPushOnce
 
 @pushOnce('styles')
     {{-- Uploader fonts --}}
-    <link href="{{ url('public/js/plugins/uploader/font/font-fileuploader.css') }}" rel="stylesheet">
+    <link href="{{ getDynamicAsset('public/js/plugins/uploader/font/font-fileuploader.css') }}" rel="stylesheet">
 
     {{-- Uploader styles --}}
-    <link href="{{ url('public/js/plugins/uploader/css/jquery.fileuploader.min.css') }}" media="all" rel="stylesheet">
-    <link href="{{ url('public/js/plugins/uploader/css/jquery.fileuploader-theme-thumbnails.css') }}" media="all" rel="stylesheet">
+    <link href="{{ getDynamicAsset('public/js/plugins/uploader/css/jquery.fileuploader.min.css') }}" media="all" rel="stylesheet">
+    <link href="{{ getDynamicAsset('public/js/plugins/uploader/css/jquery.fileuploader-theme-thumbnails.css') }}" media="all" rel="stylesheet">
 @endPushOnce
 
 @push('scripts')
@@ -91,9 +91,9 @@
                                 onItemShow: function(item, listEl, parentEl, newInputEl, inputEl) {
                                     var plusInput = listEl.find('.fileuploader-thumbnails-input'),
                                         api = $.fileuploader.getInstance(inputEl.get(0));
-                                    
+
                                     plusInput.insertAfter(item.html)[api.getOptions().limit && api.getChoosedFiles().length >= api.getOptions().limit ? 'hide' : 'show']();
-                                    
+
                                     if(item.format == 'image') {
                                         item.html.find('.fileuploader-item-icon').hide();
                                     }
@@ -101,10 +101,10 @@
                                 onItemRemove: function(html, listEl, parentEl, newInputEl, inputEl) {
                                     var plusInput = listEl.find('.fileuploader-thumbnails-input'),
                                         api = $.fileuploader.getInstance(inputEl.get(0));
-                                
+
                                     html.children().animate({'opacity': 0}, 200, function() {
                                         html.remove();
-                                        
+
                                         if (api.getOptions().limit && api.getChoosedFiles().length - 1 < api.getOptions().limit)
                                             plusInput.show();
                                     });
@@ -116,11 +116,11 @@
                             afterRender: function(listEl, parentEl, newInputEl, inputEl) {
                                 var plusInput = listEl.find('.fileuploader-thumbnails-input'),
                                     api = $.fileuploader.getInstance(inputEl.get(0));
-                            
+
                                 plusInput.on('click', function() {
                                     api.open();
                                 });
-                                
+
                                 api.getOptions().dragDrop.container = plusInput;
                             },
 
@@ -161,7 +161,7 @@
 
                                     // Add to files
                                     _this.files.push(details);
-                                    
+
                                 }, () => {
 
                                     // Get api
@@ -177,7 +177,7 @@
                                         icon       : 'error'
                                     });
                                 });
-                                
+
                             },
 
                             // Remove file

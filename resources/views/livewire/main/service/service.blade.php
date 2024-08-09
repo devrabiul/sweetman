@@ -60,7 +60,7 @@
                                 </a>
                             </div>
                         </li>
-                
+
                         {{-- Category --}}
                         <li>
                             <div class="flex items-center">
@@ -72,11 +72,11 @@
                                 <a href="{{ url('categories', $gig->category->slug) }}" class="ltr:ml-2 rtl:mr-2 text-sm font-medium text-gray-400 hover:text-gray-600">{{ $gig->category->name }}</a>
                             </div>
                         </li>
-                
+
                         {{-- Subcategory --}}
                         <li>
                             <div class="flex items-center">
-                                
+
                                 <svg class="hidden ltr:block flex-shrink-0 h-4 w-4 text-gray-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"> <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/> </svg>
 
                                 <svg xmlns="http://www.w3.org/2000/svg" class="hidden rtl:block flex-shrink-0 h-4 w-4 text-gray-300" viewBox="0 0 20 20" fill="currentColor"> <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
@@ -84,7 +84,7 @@
                                 <a href="{{ url('categories/' . utf8_decode(urldecode($gig->category->slug . '/' . $gig->subcategory->slug))) }}" class="ltr:ml-2 rtl:mr-2 text-sm font-medium text-gray-400 hover:text-gray-600" aria-current="page">{{ $gig->subcategory->name }}</a>
                             </div>
                         </li>
-                        
+
                     </ol>
                 </nav>
 
@@ -145,7 +145,7 @@
             </div>
         </div>
     </div>
-    
+
     <div id="image-modal" class="fixed inset-0 hidden flex items-center justify-center bg-black bg-opacity-100 z-50">
         <div class="rounded shadow-lg relative z-100 max-w-full max-h-full overflow-hidden">
             <img id="modal-image" class="max-w-full p-2" src="" alt="Large view" style="width: 1200px; height: 600px; object-fit: contain;">
@@ -222,7 +222,7 @@
                             </a>
 
                             <span class="h-4 w-px bg-gray-200 dark:bg-zinc-700 hidden md:!inline" aria-hidden="true"></span>
-                            
+
                             {{-- Orders in queue --}}
                             <div class="text-sm font-normal text-gray-500 dark:text-gray-400">
                                 @if ($gig->total_orders_in_queue() == 1 || $gig->total_orders_in_queue() == 0)
@@ -268,14 +268,14 @@
                                         {!! __('messages.t_expected_delivery_date_time', ['date' => __('messages.t_1_month')]) !!}
                                         @break
                                     @default
-                                        
+
                                 @endswitch
                             </p>
 
                         </div>
-                        
+
                     </div>
-                    
+
                     {{-- Rating  --}}
                     <div class="flex items-center">
                         <div class="flex items-center" wire:ignore>
@@ -324,7 +324,7 @@
                 <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-2">
 
                     {{-- Add to cart --}}
-                    <button 
+                    <button
                         wire:click="addToCart"
                         wire:loading.class="bg-gray-200 hover:bg-gray-300 text-gray cursor-not-allowed"
                         wire:loading.class.remove="bg-primary-600 hover:bg-primary-700 text-white cursor-pointer"
@@ -449,11 +449,11 @@
                                     @endif
                                 @endif
                             @endauth
-                            
+
                         </ul>
                     </div>
                 </div>
-                
+
             </div>
 
             {{-- Tabs --}}
@@ -514,14 +514,14 @@
                                         <h5 class="text-sm font-medium text-gray-900 dark:text-gray-300 focus:outline-none flex items-center px-6 py-4">
                                             {{ $faq->question }}
                                         </h5>
-                                
+
                                         <span class="relative flex-shrink-0 ltr:ml-1.5 rtl:mr-1.5 w-5 h-5 ltr:mr-6 rtl:ml-6">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="absolute inset-0 w-5 h-5 opacity-100 group-open:opacity-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" > <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"/> </svg>
-                                
+
                                             <svg xmlns="http://www.w3.org/2000/svg" class="absolute inset-0 w-5 h-5 opacity-0 group-open:opacity-100" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" > <path stroke-linecap="round" stroke-linejoin="round" d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"/> </svg>
                                         </span>
                                     </summary>
-                                
+
                                     <p class="mt-4 leading-relaxed text-gray-600 dark:text-gray-200 text-sm px-6 pb-4">
                                         {{ $faq->answer }}
                                     </p>
@@ -568,7 +568,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                
+
                                             {{-- Message --}}
                                             @if ($review->message)
                                                 <div class="mt-4 space-y-6 text-sm italic text-gray-600 dark:text-gray-400">
@@ -578,11 +578,11 @@
 
                                         </div>
                                     @endforeach
-                                    
+
                                 </div>
                             </div>
                         @else
-                        
+
                             <div class="text-center block text-sm font-normal text-gray-500 dark:text-gray-300">{{ __('messages.t_no_data_to_show_now') }}</div>
 
                         @endif
@@ -592,15 +592,15 @@
 
         </div>
 
-        
+
 
     </div>
-    
+
  {{-- Related gigs --}}
     @if ($related_gigs)
         <div class="mt-12 sm:mt-24" wire:ignore>
 
-   
+
             {{-- Section title --}}
             <div class="flex justify-between mb-6">
 
@@ -610,10 +610,10 @@
                 </div>
 
                 <div class="hidden md:block">
-                    
+
                     {{-- Direction --}}
                     @if (config()->get('direction') === 'ltr')
-                        
+
                         {{-- Prev Btn --}}
                         <button id="related-gigs-prev-btn" class="h-8 w-8 rounded-tl-md rounded-bl-md bg-primary-600 hover:bg-primary-600 text-white">
                             <svg class="h-4.5 w-4.5 inline-block" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
@@ -625,7 +625,7 @@
                         </button>
 
                     @else
-                        
+
                         {{-- Prev Btn --}}
                         <button id="related-gigs-prev-btn" class="h-8 w-8 rounded-tr-md rounded-br-md bg-primary-600 hover:bg-primary-600 text-white">
                             <svg class="h-4.5 w-4.5 inline-block" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
@@ -661,14 +661,14 @@
     @auth
         @if (auth()->id() !== $gig->user_id)
             <x-forms.modal id="modals-report-container" target="modals-report-btn" uid="modal_{{ uid() }}" placement="center-center" size="max-w-md">
-        
+
                 {{-- Header --}}
                 <x-slot name="title">{{ __('messages.t_report_this_gig') }}</x-slot>
-        
+
                 {{-- Content --}}
                 <x-slot name="content">
                     <div class="grid grid-cols-12 md:gap-x-6 gap-y-6">
-        
+
                         {{-- Reason --}}
                         <div class="col-span-12">
                             <x-forms.textarea
@@ -678,15 +678,15 @@
                                 icon="folder-question"
                                 maxlength="500" />
                         </div>
-        
+
                     </div>
                 </x-slot>
-        
+
                 {{-- Footer --}}
                 <x-slot name="footer">
                     <x-forms.button action="report" text="{{ __('messages.t_report') }}"  />
                 </x-slot>
-        
+
             </x-forms.modal>
         @endif
     @endauth
@@ -724,7 +724,7 @@
                     </a>
                     <span class="uppercase font-normal text-xs text-gray-500 mt-4 tracking-widest">{{ __('messages.t_linkedin') }}</span>
                 </div>
-                
+
                 {{-- Whatsapp --}}
                 <div class="grid items-center justify-center mx-4">
                     <a href="https://api.whatsapp.com/send?text={{ $gig->title }}%20{{ url('service', $gig->slug) }}" target="_blank" class="inline-flex justify-center items-center h-12 w-12 border border-transparent rounded-full bg-[#25d366] focus:outline-none focus:ring-0 mx-auto">
@@ -763,7 +763,7 @@
     <script defer src="https://cdn.jsdelivr.net/npm/@splidejs/splide-extension-video@0.7.1/dist/js/splide-extension-video.min.js"></script>
 
     {{-- Componennts --}}
-    <script src="{{ url('public/js/components.js') }}"></script>
+    <script src="{{ getDynamicAsset('public/js/components.js') }}"></script>
 
 
 {{-- AlpineJs --}}
@@ -918,7 +918,7 @@
 @endpush
 
 @push('styles')
-    
+
     {{-- Splide Plugin --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.0.7/dist/css/splide.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.0.7/dist/css/splide-core.min.css">
@@ -926,7 +926,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide-extension-video@0.7.1/dist/css/splide-extension-video.min.css">
 
     {{-- Ckeditor Style --}}
-    <link rel="stylesheet" href="{{ url('public/css/ckeditor-inline.css') }}">
+    <link rel="stylesheet" href="{{ getDynamicAsset('public/css/ckeditor-inline.css') }}">
 
     {{-- Slick Plugin --}}
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>

@@ -104,6 +104,7 @@
                                     x-on:click="closeNotification(notification)">
                                 <span class="sr-only">Close</span>
                                 <?php if (isset($component)) { $__componentOriginal511d4862ff04963c3c16115c05a86a9d = $component; } ?>
+<?php if (isset($attributes)) { $__attributesOriginal511d4862ff04963c3c16115c05a86a9d = $attributes; } ?>
 <?php $component = Illuminate\View\DynamicComponent::resolve(['component' => WireUi::component('icon')] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('dynamic-component'); ?>
 <?php if ($component->shouldRender()): ?>
@@ -113,6 +114,10 @@
 <?php endif; ?>
 <?php $component->withAttributes(['class' => 'h-5 w-5','name' => 'x']); ?>
 <?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__attributesOriginal511d4862ff04963c3c16115c05a86a9d)): ?>
+<?php $attributes = $__attributesOriginal511d4862ff04963c3c16115c05a86a9d; ?>
+<?php unset($__attributesOriginal511d4862ff04963c3c16115c05a86a9d); ?>
 <?php endif; ?>
 <?php if (isset($__componentOriginal511d4862ff04963c3c16115c05a86a9d)): ?>
 <?php $component = $__componentOriginal511d4862ff04963c3c16115c05a86a9d; ?>

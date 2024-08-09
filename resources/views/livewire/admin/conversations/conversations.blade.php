@@ -2,19 +2,19 @@
 
     {{-- Loading --}}
     <x-forms.loading />
-    
+
     {{-- Heading --}}
     <div class="mb-16">
         <div class="mx-auto max-w-7xl">
             <div class="lg:flex lg:items-center lg:justify-between">
-    
+
                 <div class="min-w-0 flex-1">
-    
+
                     {{-- Section heading --}}
                     <h2 class="text-lg font-bold leading-7 text-zinc-700 dark:text-gray-50 sm:truncate sm:text-xl sm:tracking-tight">
                         @lang('messages.t_conversations')
                     </h2>
-    
+
                     {{-- Breadcrumbs --}}
                     <div class="mt-3 flex flex-col sm:flex-row sm:flex-wrap sm:space-x-6 rtl:space-x-reverse">
                         <ol class="inline-flex items-center mb-3 space-x-1 md:space-x-3 md:rtl:space-x-reverse sm:mb-0">
@@ -27,7 +27,7 @@
                                     </a>
                                 </div>
                             </li>
-            
+
                             {{-- dashboard --}}
                             <li aria-current="page">
                                 <div class="flex items-center">
@@ -37,7 +37,7 @@
                                     </a>
                                 </div>
                             </li>
-            
+
                             {{-- Messages --}}
                             <li aria-current="page">
                                 <div class="flex items-center">
@@ -47,15 +47,15 @@
                                     </span>
                                 </div>
                             </li>
-            
+
                         </ol>
                     </div>
-                    
+
                 </div>
-    
+
                 {{-- Actions --}}
                 <div class="mt-5 flex lg:mt-0 lg:ltr::ml-4 lg:rtl:mr-4">
-        
+
                     {{-- Settings --}}
                     <span class="">
                         <a href="{{ admin_url('settings/chat') }}" class="relative inline-flex items-center px-4 py-3 border border-gray-300 dark:border-zinc-600 dark:hover:bg-zinc-700 dark:text-gray-200 bg-white dark:bg-zinc-800 text-[13px] font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-primary-600 focus:border-primary-600 shadow-sm rounded">
@@ -64,7 +64,7 @@
                     </span>
 
                 </div>
-    
+
             </div>
         </div>
     </div>
@@ -87,10 +87,10 @@
 
                         {{-- Date --}}
                         <th class="font-bold tracking-wider text-gray-600 px-5 py-4.5 text-center border-b-0 whitespace-nowrap text-xs uppercase dark:text-zinc-300 first:ltr:rounded-l-md last:ltr:rounded-r-md first:rtl:rounded-r-md last:rtl:rounded-l-md">@lang('messages.t_date')</th>
-                        
+
                         {{-- Options --}}
                         <th class="font-bold tracking-wider text-gray-600 px-5 py-4.5 text-center border-b-0 whitespace-nowrap text-xs uppercase dark:text-zinc-300 first:ltr:rounded-l-md last:ltr:rounded-r-md first:rtl:rounded-r-md last:rtl:rounded-l-md">@lang('messages.t_options')</th>
-                        
+
                     </tr>
                 </thead>
                 <thead>
@@ -111,20 +111,20 @@
 
                                         </div>
                                         <div class="flex items-center space-x-3 rtl:space-x-reverse text-xs font-normal text-gray-400 dark:text-zinc-300">
-                
+
                                             {{-- Details --}}
                                             <a href="{{ admin_url('users/details/' . $msg->from->uid) }}" class="dark:text-zinc-300 whitespace-nowrap hover:text-gray-600 hover:underline">
-                                                @lang('messages.t_user_details')   
+                                                @lang('messages.t_user_details')
                                             </a>
-                        
+
                                             {{-- Divider --}}
                                             <div class="mx-2 my-0.5 text-gray-200 dark:text-zinc-600">|</div>
 
                                             {{-- View profile --}}
                                             <a href="{{ url('profile', $msg->from->username) }}" target="_blank" class="dark:text-zinc-300 whitespace-nowrap hover:text-gray-600 hover:underline">
-                                                @lang('messages.t_view_profile')    
+                                                @lang('messages.t_view_profile')
                                             </a>
-                        
+
                                         </div>
                                     </div>
                                 </div>
@@ -144,20 +144,20 @@
 
                                         </div>
                                         <div class="flex items-center space-x-3 rtl:space-x-reverse text-xs font-normal text-gray-400 dark:text-zinc-300">
-                
+
                                             {{-- Details --}}
                                             <a href="{{ admin_url('users/details/' . $msg->to->uid) }}" class="dark:text-zinc-300 whitespace-nowrap hover:text-gray-600 hover:underline">
-                                                @lang('messages.t_user_details')   
+                                                @lang('messages.t_user_details')
                                             </a>
-                        
+
                                             {{-- Divider --}}
                                             <div class="mx-2 my-0.5 text-gray-200 dark:text-zinc-600">|</div>
 
                                             {{-- View profile --}}
                                             <a href="{{ url('profile', $msg->to->username) }}" target="_blank" class="dark:text-zinc-300 whitespace-nowrap hover:text-gray-600 hover:underline">
-                                                @lang('messages.t_view_profile')    
+                                                @lang('messages.t_view_profile')
                                             </a>
-                        
+
                                         </div>
                                     </div>
                                 </div>
@@ -198,7 +198,7 @@
                                         </button>
                                         <x-forms.tooltip id="tooltip-actions-delete-{{ $msg->id }}" :text="__('messages.t_delete')" />
                                     </div>
-                                        
+
                                 </div>
                             </td>
 
@@ -213,7 +213,7 @@
                             {{-- Modal content --}}
                             <x-slot name="content">
                                 <div class="w-full divide-y divide-gray-300 space-y-8">
-                                    
+
                                     {{-- Message --}}
                                     @if ($msg->body)
                                         <div class="w-full">
@@ -223,14 +223,14 @@
                                             </div>
                                         </div>
                                     @endif
-    
+
                                     {{-- Attachment --}}
                                     @if ($msg->attachment)
                                         <div class="w-full pb-4">
-                                                
+
                                             {{-- Label --}}
                                             <span class="{{ $msg->body ? 'mt-8' : '' }} mb-2 block text-sm font-bold tracking-wide text-zinc-700">@lang('messages.t_attachment')</span>
-    
+
                                             {{-- File --}}
                                             @php
                                                 $attachment = json_decode($msg->attachment)
@@ -252,7 +252,7 @@
 
                                                     {{-- Date / Download --}}
                                                     <div class="focus:outline-none text-xs leading-3 text-gray-500 pt-1 space-x-2 rtl:space-x-reverse dark:text-zinc-400">
-                                                        
+
                                                         {{-- Download --}}
                                                         <a href="{{ url('inbox/download', $attachment->new_name) }}" class="text-primary-600 hover:underline">@lang('messages.t_download')</a>
 
@@ -266,7 +266,7 @@
                                                 </div>
 
                                             </div>
-    
+
                                         </div>
                                     @endif
 
@@ -297,5 +297,5 @@
 </div>
 
 @push('styles')
-    <link rel="stylesheet" href="{{ url('public/js/plugins/file-icon-vectors/file-icon-vectors.min.css') }}" />
+    <link rel="stylesheet" href="{{ getDynamicAsset('public/js/plugins/file-icon-vectors/file-icon-vectors.min.css') }}" />
 @endpush

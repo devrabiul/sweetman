@@ -206,15 +206,15 @@
                     <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('main.partials.languages')->html();
-} elseif ($_instance->childHasBeenRendered('l3048042343-0')) {
-    $componentId = $_instance->getRenderedChildComponentId('l3048042343-0');
-    $componentTag = $_instance->getRenderedChildComponentTagName('l3048042343-0');
+} elseif ($_instance->childHasBeenRendered('yplWtA3')) {
+    $componentId = $_instance->getRenderedChildComponentId('yplWtA3');
+    $componentTag = $_instance->getRenderedChildComponentTagName('yplWtA3');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('l3048042343-0');
+    $_instance->preserveRenderedChild('yplWtA3');
 } else {
     $response = \Livewire\Livewire::mount('main.partials.languages');
     $html = $response->html();
-    $_instance->logRenderedChild('l3048042343-0', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('yplWtA3', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>
@@ -267,15 +267,15 @@ echo $html;
                 <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('main.partials.search')->html();
-} elseif ($_instance->childHasBeenRendered('l3048042343-1')) {
-    $componentId = $_instance->getRenderedChildComponentId('l3048042343-1');
-    $componentTag = $_instance->getRenderedChildComponentTagName('l3048042343-1');
+} elseif ($_instance->childHasBeenRendered('5azSkXA')) {
+    $componentId = $_instance->getRenderedChildComponentId('5azSkXA');
+    $componentTag = $_instance->getRenderedChildComponentTagName('5azSkXA');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('l3048042343-1');
+    $_instance->preserveRenderedChild('5azSkXA');
 } else {
     $response = \Livewire\Livewire::mount('main.partials.search');
     $html = $response->html();
-    $_instance->logRenderedChild('l3048042343-1', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('5azSkXA', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>
@@ -284,15 +284,15 @@ echo $html;
                 <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('main.partials.cart')->html();
-} elseif ($_instance->childHasBeenRendered('l3048042343-2')) {
-    $componentId = $_instance->getRenderedChildComponentId('l3048042343-2');
-    $componentTag = $_instance->getRenderedChildComponentTagName('l3048042343-2');
+} elseif ($_instance->childHasBeenRendered('lRRBBVO')) {
+    $componentId = $_instance->getRenderedChildComponentId('lRRBBVO');
+    $componentTag = $_instance->getRenderedChildComponentTagName('lRRBBVO');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('l3048042343-2');
+    $_instance->preserveRenderedChild('lRRBBVO');
 } else {
     $response = \Livewire\Livewire::mount('main.partials.cart');
     $html = $response->html();
-    $_instance->logRenderedChild('l3048042343-2', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('lRRBBVO', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>
@@ -751,6 +751,7 @@ echo $html;
                     
                     <?php if(auth()->guard()->check()): ?>
                         <?php if (isset($component)) { $__componentOriginal897c321ee9b9bb967400e80c55835c23 = $component; } ?>
+<?php if (isset($attributes)) { $__attributesOriginal897c321ee9b9bb967400e80c55835c23 = $attributes; } ?>
 <?php $component = App\View\Components\Main\Account\Sidebar::resolve([] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('main.account.sidebar'); ?>
 <?php if ($component->shouldRender()): ?>
@@ -760,6 +761,10 @@ echo $html;
 <?php endif; ?>
 <?php $component->withAttributes(['class' => 'border-b border-gray-100 dark:border-zinc-600 mb-[14px]']); ?>
 <?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__attributesOriginal897c321ee9b9bb967400e80c55835c23)): ?>
+<?php $attributes = $__attributesOriginal897c321ee9b9bb967400e80c55835c23; ?>
+<?php unset($__attributesOriginal897c321ee9b9bb967400e80c55835c23); ?>
 <?php endif; ?>
 <?php if (isset($__componentOriginal897c321ee9b9bb967400e80c55835c23)): ?>
 <?php $component = $__componentOriginal897c321ee9b9bb967400e80c55835c23; ?>

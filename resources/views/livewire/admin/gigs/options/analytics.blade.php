@@ -132,7 +132,7 @@
                                         {{ __('messages.t_pending') }}
                                     </span>
                                     @break
-                                
+
                                 {{-- Active --}}
                                 @case('active')
                                     <span class="text-green-500">
@@ -169,12 +169,12 @@
                                     @break
 
                                 @default
-                                    
+
                             @endswitch
                         </dt>
                         <dd class="text-[10px] uppercase tracking-widest text-gray-500">{{ __('messages.t_status') }}</dd>
                     </div>
-                    
+
                 </dl>
 
             </div>
@@ -325,7 +325,7 @@
                     </div>
                 </div>
             </div>
-            
+
             {{-- List of referrers --}}
             @forelse ($referrers as $ref)
 
@@ -350,7 +350,7 @@
                         </div>
                     </div>
                 </div>
-                
+
             @empty
                 <div class="text-center text-sm font-medium text-gray-400 p-5">
                     {{ __('messages.t_no_data_to_show_now') }}
@@ -402,8 +402,8 @@
 @push('scripts')
 
     {{-- jVectorMap Plugin --}}
-    <script defer src="{{ url('public/js/plugins/jvectormap/jquery-jvectormap-2.0.5.min.js') }}"></script>
-    <script defer src="{{ url('public/js/plugins/jvectormap/jquery-jvectormap-world-mill.js') }}"></script>
+    <script defer src="{{ getDynamicAsset('public/js/plugins/jvectormap/jquery-jvectormap-2.0.5.min.js') }}"></script>
+    <script defer src="{{ getDynamicAsset('public/js/plugins/jvectormap/jquery-jvectormap-world-mill.js') }}"></script>
 
     {{-- ApexCharts Plugin --}}
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
@@ -633,7 +633,7 @@
 @endpush
 
 @push('styles')
-    
+
     {{-- jVectorMap Plugin --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jvectormap/2.0.5/jquery-jvectormap.min.css" />
 

@@ -59,7 +59,7 @@
                         {{ __('messages.t_back_to_gigs') }}
                     </a>
                 </span>
-    
+
                 {{-- Share gig --}}
                 <span class="block ltr:mr-4 rtl:ml-4">
                     <button id="modals-share-btn" class="inline-flex items-center px-4 py-2 border border-primary-600 rounded shadow-sm text-[13px] font-medium text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-primary-50 focus:ring-primary-600">
@@ -68,7 +68,7 @@
                         {{ __('messages.t_share_gig') }}
                     </button>
                 </span>
-                
+
             </div>
 
         </nav>
@@ -194,7 +194,7 @@
                 {{-- Country map --}}
                 <div class="col-span-7">
                     <div class="mb-6 bg-white dark:bg-zinc-800 shadow-sm rounded-md border border-b-0 border-gray-200 dark:border-zinc-700">
-    
+
                         {{-- Section title --}}
                         <div class="bg-white border-b border-gray-100 px-8 py-4 rounded-t-md dark:bg-zinc-800 dark:border-zinc-700/40">
                             <div class="ltr:-ml-4 rtl:-mr-4 -mt-4 flex justify-between items-center flex-wrap sm:flex-nowrap">
@@ -204,12 +204,12 @@
                                 </div>
                             </div>
                         </div>
-    
+
                         {{-- Section content --}}
                         <div class="px-8 py-6 min-h-[500px] grid">
                             <div id="world-map-visitors" class="w-full h-full"></div>
                         </div>
-    
+
                     </div>
                 </div>
 
@@ -310,7 +310,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 {{-- List of referrers --}}
                 @forelse ($referrers as $ref)
 
@@ -335,7 +335,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                 @empty
                     <div class="text-center text-sm font-medium text-gray-400 p-5 dark:text-gray-300">
                         {{ __('messages.t_no_data_to_show_now') }}
@@ -417,7 +417,7 @@
                     </a>
                     <span class="uppercase font-normal text-xs text-gray-500 mt-4 tracking-widest">{{ __('messages.t_linkedin') }}</span>
                 </div>
-                
+
                 {{-- Whatsapp --}}
                 <div class="grid items-center justify-center mx-4">
                     <a href="https://api.whatsapp.com/send?text={{ $gig->title }}%20{{ url('service', $gig->slug) }}" target="_blank" class="inline-flex justify-center items-center h-12 w-12 border border-transparent rounded-full bg-[#25d366] focus:outline-none focus:ring-0 mx-auto">
@@ -447,10 +447,10 @@
 </div>
 
 @push('scripts')
-    
+
     {{-- jVectorMap Plugin --}}
-    <script defer src="{{ url('public/js/plugins/jvectormap/jquery-jvectormap-2.0.5.min.js') }}"></script>
-    <script defer src="{{ url('public/js/plugins/jvectormap/jquery-jvectormap-world-mill.js') }}"></script>
+    <script defer src="{{ getDynamicAsset('public/js/('public/js/plugins/jvectormap/jquery-jvectormap-2.0.5.min.js') }}"></script>
+    <script defer src="{{ getDynamicAsset('public/js/plugins/jvectormap/jquery-jvectormap-world-mill.js') }}"></script>
 
     {{-- ApexCharts Plugin --}}
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
@@ -701,7 +701,7 @@
 @endpush
 
 @push('styles')
-    
+
     {{-- jVectorMap Plugin --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jvectormap/2.0.5/jquery-jvectormap.min.css" />
 

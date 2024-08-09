@@ -1,0 +1,1 @@
+<script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript"></script><?php /**PATH /opt/lampp/htdocs/sweetman/vendor/cloudinary-labs/cloudinary-laravel/resources/views/js.blade.php ENDPATH**/ ?>

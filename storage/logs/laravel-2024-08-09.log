@@ -1,0 +1,4 @@
+[2024-08-09 08:33:47] local.ERROR: Cannot declare class Chatify\Http\Controllers\Api\MessagesController, because the name is already in use {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot declare class Chatify\\Http\\Controllers\\Api\\MessagesController, because the name is already in use at /opt/lampp/htdocs/sweetman/app/Http/Controllers/Chat/Api/MessagesController.php:18)
+[stacktrace]
+#0 {main}
+"} 

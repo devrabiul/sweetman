@@ -3,8 +3,10 @@
 use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Http\Request;
 
+const SYSTEM_PROCESSING_DIRECTORY = 'root';
+
 define('LARAVEL_START', microtime(true));
-if(! defined('STDIN')) define('STDIN', fopen("php://stdin","r"));
+// if(! defined('STDIN')) define('STDIN', fopen("php://stdin","r"));
 
 /*
 |--------------------------------------------------------------------------

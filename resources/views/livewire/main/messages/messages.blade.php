@@ -6,7 +6,7 @@
 
             {{-- Section header --}}
             <div class="header py-3 px-5">
-                    
+
                 {{-- Section title --}}
                 <div class="">
                     <span class="text-sm font-semibold tracking-wide text-gray-700 dark:text-gray-100">{{ __('messages.t_messages') }}</span>
@@ -14,7 +14,7 @@
 
                 {{-- My Profile --}}
                 <div class="user-settings rtl:!mr-auto rtl:!ml-[unset]">
-                    
+
                     {{-- Account settings --}}
                     <div class="settings">
                         <a href="{{ url('account/settings') }}" target="_blank" data-tooltip-target="tooltip-account-settings">
@@ -69,7 +69,7 @@
                             </div>
                         </a>
                     @endforeach
-                    
+
                     <div class="overlay"></div>
                 </div>
 
@@ -84,13 +84,13 @@
             </div>
         </div>
     @else
-        
+
     <div class="py-14 px-6 text-center text-sm sm:px-14 max-w-xl border-2 bg-slate-50 dark:bg-zinc-800 border-gray-200 dark:border-zinc-700 m-auto border-dashed">
         <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto h-6 w-6 text-gray-400 dark:text-gray-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"> <path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
         <p class="mt-4 font-semibold text-gray-900 dark:text-white">{{ __('messages.t_no_conversations') }}</p>
         <p class="mt-2 text-gray-500 dark:text-gray-300">{{ __('messages.t_u_dont_have_any_active_conversations') }}</p>
     </div>
-        
+
     @endif
 
 </div>
@@ -113,8 +113,8 @@
 @endpush
 
 @push('styles')
-    
+
     {{-- Chat style --}}
-    <link rel="stylesheet" href="{{ url('public/css/chat.css') }}">
+    <link rel="stylesheet" href="{{ getDynamicAsset('public/css/chat.css') }}">
 
 @endpush

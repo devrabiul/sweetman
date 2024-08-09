@@ -704,6 +704,7 @@ echo $html;
     <?php if(auth()->guard()->check()): ?>
         <?php if(auth()->id() !== $gig->user_id): ?>
             <?php if (isset($component)) { $__componentOriginal626cd0ad8c496eb8a190505b15f0d732 = $component; } ?>
+<?php if (isset($attributes)) { $__attributesOriginal626cd0ad8c496eb8a190505b15f0d732 = $attributes; } ?>
 <?php $component = App\View\Components\Forms\Modal::resolve([] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('forms.modal'); ?>
 <?php if ($component->shouldRender()): ?>
@@ -723,6 +724,7 @@ echo $html;
                         
                         <div class="col-span-12">
                             <?php if (isset($component)) { $__componentOriginal2f60389a9e230471cd863683376c182f = $component; } ?>
+<?php if (isset($attributes)) { $__attributesOriginal2f60389a9e230471cd863683376c182f = $attributes; } ?>
 <?php $component = App\View\Components\Forms\Textarea::resolve([] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('forms.textarea'); ?>
 <?php if ($component->shouldRender()): ?>
@@ -732,6 +734,10 @@ echo $html;
 <?php endif; ?>
 <?php $component->withAttributes(['label' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(__('messages.t_reason')),'placeholder' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(__('messages.t_let_us_know_why_u_report_this_gig')),'model' => 'reason','icon' => 'folder-question','maxlength' => '500']); ?>
 <?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__attributesOriginal2f60389a9e230471cd863683376c182f)): ?>
+<?php $attributes = $__attributesOriginal2f60389a9e230471cd863683376c182f; ?>
+<?php unset($__attributesOriginal2f60389a9e230471cd863683376c182f); ?>
 <?php endif; ?>
 <?php if (isset($__componentOriginal2f60389a9e230471cd863683376c182f)): ?>
 <?php $component = $__componentOriginal2f60389a9e230471cd863683376c182f; ?>
@@ -745,6 +751,7 @@ echo $html;
                 
                  <?php $__env->slot('footer', null, []); ?> 
                     <?php if (isset($component)) { $__componentOriginal039608dc70b2e4c26356f5d84408f584 = $component; } ?>
+<?php if (isset($attributes)) { $__attributesOriginal039608dc70b2e4c26356f5d84408f584 = $attributes; } ?>
 <?php $component = App\View\Components\Forms\Button::resolve([] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('forms.button'); ?>
 <?php if ($component->shouldRender()): ?>
@@ -755,6 +762,10 @@ echo $html;
 <?php $component->withAttributes(['action' => 'report','text' => ''.e(__('messages.t_report')).'']); ?>
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
+<?php if (isset($__attributesOriginal039608dc70b2e4c26356f5d84408f584)): ?>
+<?php $attributes = $__attributesOriginal039608dc70b2e4c26356f5d84408f584; ?>
+<?php unset($__attributesOriginal039608dc70b2e4c26356f5d84408f584); ?>
+<?php endif; ?>
 <?php if (isset($__componentOriginal039608dc70b2e4c26356f5d84408f584)): ?>
 <?php $component = $__componentOriginal039608dc70b2e4c26356f5d84408f584; ?>
 <?php unset($__componentOriginal039608dc70b2e4c26356f5d84408f584); ?>
@@ -762,6 +773,10 @@ echo $html;
                  <?php $__env->endSlot(); ?>
         
              <?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__attributesOriginal626cd0ad8c496eb8a190505b15f0d732)): ?>
+<?php $attributes = $__attributesOriginal626cd0ad8c496eb8a190505b15f0d732; ?>
+<?php unset($__attributesOriginal626cd0ad8c496eb8a190505b15f0d732); ?>
 <?php endif; ?>
 <?php if (isset($__componentOriginal626cd0ad8c496eb8a190505b15f0d732)): ?>
 <?php $component = $__componentOriginal626cd0ad8c496eb8a190505b15f0d732; ?>
@@ -772,6 +787,7 @@ echo $html;
 
     
     <?php if (isset($component)) { $__componentOriginal626cd0ad8c496eb8a190505b15f0d732 = $component; } ?>
+<?php if (isset($attributes)) { $__attributesOriginal626cd0ad8c496eb8a190505b15f0d732 = $attributes; } ?>
 <?php $component = App\View\Components\Forms\Modal::resolve([] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('forms.modal'); ?>
 <?php if ($component->shouldRender()): ?>
@@ -837,6 +853,10 @@ echo $html;
          <?php $__env->endSlot(); ?>
 
  <?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__attributesOriginal626cd0ad8c496eb8a190505b15f0d732)): ?>
+<?php $attributes = $__attributesOriginal626cd0ad8c496eb8a190505b15f0d732; ?>
+<?php unset($__attributesOriginal626cd0ad8c496eb8a190505b15f0d732); ?>
 <?php endif; ?>
 <?php if (isset($__componentOriginal626cd0ad8c496eb8a190505b15f0d732)): ?>
 <?php $component = $__componentOriginal626cd0ad8c496eb8a190505b15f0d732; ?>
